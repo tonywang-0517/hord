@@ -37,7 +37,7 @@
 
   <style>
     .hero.is-fullheight {
-      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      background: url('static/images/bg.png') center center / cover no-repeat;
       position: relative;
       min-height: 100vh;
     }
@@ -45,10 +45,9 @@
       content: '';
       position: absolute;
       top: 0;
-      left: -3%;
+      left: 0;
       right: 0;
       bottom: 0;
-      opacity: 0.4;
       z-index: 0;
     }
     .hero-body {
@@ -67,20 +66,20 @@
       margin: auto;
     }
     .gradient-text {
-      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      background: var(--gradient-primary);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
       font-weight: bold;
     }
     .highlight-title {
-      color: #667eea;
+      color: var(--primary-color);
       font-weight: bold;
       margin-bottom: 1.5rem !important;
     }
     .component-box {
-      background: #f8f9fa;
-      border-left: 4px solid #667eea;
+      background: var(--background-secondary);
+      border-left: 4px solid var(--primary-color);
       padding: 1.5rem;
       margin-bottom: 1rem;
       border-radius: 8px;
@@ -115,7 +114,7 @@
       flex-grow: 1;
     }
     .metric-card {
-      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      background: var(--gradient-primary);
       color: white;
       padding: 2rem;
       border-radius: 10px;
@@ -155,7 +154,7 @@
 
               <div class="is-size-6 publication-authors" style="margin-bottom: 1.5rem;">
                 <span class="author-block">University of Auckland</span><br>
-                <span class="author-block">COMPSCI 792 Project - 2025</span>
+                <span class="author-block">ICML 2026</span>
                   </div>
 
               <div class="column has-text-centered" style="padding-top: 0;">
@@ -179,11 +178,11 @@
                 </span>
 
                 <span class="link-block">
-                    <a target="_blank" href="https://app.mural.co/t/puyuewangsworkspace5613/m/unicornai4709/1754387147784/6803cde2dd3d1ec8035077a659d47cdce2261ad6?sender=u18823d8b8a2cf6ec54a84733" class="external-link button is-normal is-rounded is-dark">
+                    <a target="_blank" href="https://www.youtube.com/watch?v=YOUR_VIDEO_ID" class="external-link button is-normal is-rounded is-dark">
                   <span class="icon">
-                          <i class="fas fa-project-diagram"></i>
+                          <i class="fab fa-youtube"></i>
                       </span>
-                      <span>Project Mural</span>
+                      <span>Video</span>
                     </a>
                   </span>
                 </div>
@@ -203,13 +202,13 @@
         <h2 class="title is-3">Abstract</h2>
         <div class="content has-text-justified">
           <p>
-            Vision–Language–Action (VLA) systems have advanced <strong>semantic reasoning</strong> for robots, yet achieving robust <strong>whole-body humanoid control</strong> that couples semantic understanding with dynamic adaptability remains a central challenge. Existing approaches often lack explicit modeling of high-dimensional dynamics and rely on training data that is <strong>fragmented and non-standardized</strong>, limiting generalization across domains and reliable recovery under perturbations.
+            Achieving robust <strong>whole-body humanoid control</strong> under dynamics mismatch remains a central challenge in robotics. In this work, we present <strong class="gradient-text">MIRAGE</strong>, <strong>a lightweight execution framework</strong> that achieves substantially higher success rates under domain shifts, enabling reliable zero-shot sim-to-sim transfer to unseen physics engines where prior methods degrade or fail. Rather than decomposing behaviors into multiple experts or relying on target-domain adapters, MIRAGE employs a single torque-level policy operating from standardized sparse commands and a history-conditioned representation.
           </p>
           <p>
-            In this work, we present <strong class="gradient-text">MIRAGE</strong>, <strong>a unified mobile manipulation framework for robust humanoid control</strong>, which seamlessly integrates <strong>standardized data generation</strong> with <strong>robust execution policies</strong>. A teacher expert trained with reinforcement learning under extensive domain randomization generates large volumes of standardized trajectories, mitigating the long-standing data scarcity in embodied intelligence. Our framework introduces three key innovations: <strong>SCHEMA</strong> (Sparse Command Handling for Embodied Motion Abstraction), <strong>MIRROR</strong> (Memory-Integrated Robust Representation for Online Robustness), and <strong>RISE</strong> (Recovery via Inferred State Endpoints), which together enable generalizable training signals, robust control under domain shifts, and long-horizon recovery behaviors.
+            Our framework introduces two key innovations: <strong>SCHEMA</strong> (Sparse Command Handling for Embodied Motion Abstraction), a standardized sparse-joint protocol based on SMPL-X keypoints that consolidates fragmented motion sources; and <strong>MIRROR</strong> (Memory-Integrated Robust Representation for Online Robustness), a history-conditioned control policy that leverages recent state–action sequences as implicit dynamics memory, significantly improving stability and sim-to-sim transfer.
           </p>
           <p>
-            Extensive experiments show that MIRAGE consistently converts SCHEMA-formatted inputs into torque-level humanoid control and achieves strong robustness across diverse domain shifts. Quantitatively, MIRAGE reduces trajectory error by <strong>∼17%</strong>, raises strict success by <strong>∼16 percentage points</strong>, improves push-recovery by <strong>∼34 points</strong>, and attains <strong>61% fall-recovery</strong> where baselines fail. Our work advances the feasibility of resilient humanoid deployment in unstructured environments.
+            Extensive experiments on a Unitree-style G1 humanoid demonstrate that MIRAGE achieves <strong>90.7%</strong> success rate in the training simulator (IsaacLab) and <strong>86.0%</strong> success rate in zero-shot transfer to an unseen physics engine (Genesis), significantly outperforming strong baselines including MaskedMimic, OmniH2O, ExBody2, and Hover.
           </p>
         </div>
       </div>
@@ -225,30 +224,30 @@
     <div class="columns is-multiline" style="margin-top: 2rem;">
       <div class="column is-3">
         <div class="metric-card">
-          <p class="title">∼17%</p>
-          <p class="subtitle">Trajectory Error<br>Reduction</p>
+          <p class="title">90.7%</p>
+          <p class="subtitle">Success Rate<br>IsaacLab<br>(Training)</p>
         </div>
       </div>
       <div class="column is-3">
         <div class="metric-card">
-          <p class="title">∼16pp</p>
-          <p class="subtitle">Strict Success<br>Improvement</p>
+          <p class="title">88.4%</p>
+          <p class="subtitle">Success Rate<br>IsaacLab + DR<br>(Training)</p>
         </div>
       </div>
       <div class="column is-3">
         <div class="metric-card">
-          <p class="title">∼34pp</p>
-          <p class="subtitle">Push-Recovery<br>Improvement</p>
+          <p class="title">86.0%</p>
+          <p class="subtitle">Success Rate<br>Genesis<br>(Zero-Shot)</p>
         </div>
      </div>
       <div class="column is-3">
         <div class="metric-card">
-          <p class="title">61%</p>
-          <p class="subtitle">Fall-Recovery<br>Success Rate</p>
+          <p class="title">84.4%</p>
+          <p class="subtitle">Success Rate<br>Genesis + DR<br>(Zero-Shot)</p>
     </div>
   </div>
      </div>
-    <div class="box has-text-centered" style="margin-top: 2rem; background: linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.1) 100%); border: 2px solid #667eea;">
+    <div class="box has-text-centered" style="margin-top: 2rem; background: var(--gradient-primary-light); border: 2px solid var(--primary-color);">
       <h4 class="title is-4">
         <span class="icon-text">
           <span class="icon"><i class="fas fa-rocket"></i></span>
@@ -256,7 +255,7 @@
         </span>
       </h4>
       <p class="is-size-5">
-        <strong class="gradient-text">90.7%</strong> success rate under domain randomization vs. <strong>45.1%</strong> MaskedMimic baseline
+        MIRAGE achieves <strong class="gradient-text">86.0%</strong> success rate in zero-shot transfer to Genesis (unseen physics engine), outperforming ExBody2 (<strong>73.1%</strong>) and OmniH2O (<strong>72.3%</strong>). Under domain randomization, MIRAGE maintains <strong class="gradient-text">84.4%</strong> success rate while baselines collapse to near-failure regimes.
       </p>
 </div>
 </div>
@@ -270,11 +269,13 @@
         <h2 class="title is-2 has-text-centered"><span class="gradient-text">MIRAGE</span> Framework</h2>
         <div class="content has-text-centered">
           <figure class="image">
-            <img src="static/images/structure_overview.jpg" alt="MIRAGE Framework Overview">
+            <img src="static/images/mirage_overview.png" alt="MIRAGE Framework Overview">
           </figure>
           <p class="has-text-grey" style="margin-top: 1rem;">
-            <span class="gradient-text">MIRAGE</span> pipeline integrates <strong>teacher-student training</strong>, 
-            <strong>standardized data generation</strong>, and <strong>robust policy execution</strong> for whole-body humanoid control.
+            <span class="gradient-text">MIRAGE</span> is a lightweight execution framework that realizes sparse-to-torque control 
+            through a teacher-student architecture. At a high level, MIRAGE learns a single high-frequency policy that maps 
+            sparse motion commands (SCHEMA), local observations, and a short history of recent interaction (MIRROR) into joint 
+            torques for a humanoid robot, while remaining robust to changes in dynamics through structured domain randomization.
           </p>
         </div>
       </div>
@@ -285,9 +286,9 @@
 <!-- Key Components -->
 <section class="section is-light">
   <div class="container is-max-desktop">
-    <h2 class="title is-3 has-text-centered">Three Core Innovations</h2>
+    <h2 class="title is-3 has-text-centered">Two Core Innovations</h2>
     <div class="columns is-multiline" style="margin-top: 2rem;">
-      <div class="column is-4">
+      <div class="column is-6">
         <div class="component-box">
           <h3 class="title is-4">
             <span class="icon-text">
@@ -295,12 +296,12 @@
               <span class="gradient-text">SCHEMA</span>
             </span>
           </h3>
-          <p class="subtitle is-6"><strong>Sparse Command Handling for Embodied Motion Abstraction</strong></p>
-          <p>Unified sparse-joint protocol based on SMPL-X key body joints, enabling generalizable training signals from language tokens or sparse keyframes.</p>
+          <p class="subtitle is-6"><strong>Standardized Sparse Command Interface</strong></p>
+          <p>SCHEMA defines a unified sparse-joint protocol based on SMPL-X keypoints, consolidating fragmented motion sources into a single training and execution format. It enables large-scale humanoid trajectory generation from datasets such as AMASS, where human motion sequences are retargeted to the humanoid, downsampled, and projected onto a set of SMPL-X key joints (e.g., hips, knees, ankles, shoulders, elbows, wrists). This standardized interface decouples perception and planning from low-level actuation, allowing different upstream generators to produce interchangeable SCHEMA packets without modifying the controller or training pipeline.</p>
         </div>
       </div>
       
-      <div class="column is-4">
+      <div class="column is-6">
         <div class="component-box">
           <h3 class="title is-4">
             <span class="icon-text">
@@ -308,151 +309,199 @@
               <span class="gradient-text">MIRROR</span>
             </span>
           </h3>
-          <p class="subtitle is-6"><strong>Memory-Integrated Robust Representation for Online Robustness</strong></p>
-          <p>Leverages recent action-state histories as implicit memory to align latent dynamics, stabilizing control under domain shifts.</p>
-        </div>
-      </div>
-      
-      <div class="column is-4">
-        <div class="component-box">
-          <h3 class="title is-4">
-            <span class="icon-text">
-              <span class="icon"><i class="fas fa-redo-alt"></i></span>
-              <span class="gradient-text">RISE</span>
-            </span>
-          </h3>
-          <p class="subtitle is-6"><strong>Recovery via Inferred State Endpoints</strong></p>
-          <p>Distills diverse expert recoveries into shared terminal representations, guiding long-horizon behaviors like fall-and-get-up.</p>
+          <p class="subtitle is-6"><strong>History-Integrated Dynamics Memory</strong></p>
+          <p>MIRROR aggregates a short window of past states and actions into a fixed-dimensional history embedding using a QFormer-style memory extractor. Rather than flattening the history through a simple feed-forward encoder, MIRROR performs early fusion between a learned memory-factor prior and the recent interaction trace. The resulting memory token is injected via a residual connection into the latent control representation, enabling the controller to modulate its decisions based on inferred dynamics. This provides domain awareness, allowing the policy to disambiguate which realization of the randomized dynamics it is currently operating in and adjust its control strategy accordingly. Empirically, removing MIRROR significantly degrades sim-to-sim transfer and recovery performance.</p>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- MaskedMimic Pro Introduction -->
+<!-- Training Methodology -->
 <section class="section is-light">
   <div class="container is-max-desktop">
     <h2 class="title is-3 has-text-centered">
-      <i class="fas fa-cut"></i> Ablation Study: MaskedMimic Pro
+      <i class="fas fa-cogs"></i> Training Methodology
     </h2>
-    <div class="content" style="margin-top: 2rem;">
-      <div class="box" style="background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%); padding: 2rem; border-left: 5px solid #667eea;">
-        <div class="columns is-vcentered">
-          <div class="column is-8">
-            <h3 class="title is-5" style="margin-bottom: 1rem;">
-              <span class="gradient-text">What is MaskedMimic Pro?</span>
-            </h3>
-            <p style="font-size: 1.1rem; line-height: 1.8;">
-              <strong>MaskedMimic Pro</strong> is our <strong>ablation baseline</strong> designed to isolate 
-              the contribution of MIRAGE's key innovations. Built upon the original <strong>MaskedMimic</strong> 
-              method and optimized for the <strong>Unitree G1</strong> humanoid robot, it features:
-            </p>
-            <ul style="margin-top: 1rem; font-size: 1.05rem; line-height: 1.8;">
-              <li><strong>Fine-tuned Training Parameters:</strong> Carefully adjusted hyperparameters tailored 
-              for the G1's specific kinematics and dynamics</li>
-              <li><strong>Enhanced Transformer Architecture:</strong> Expanded the transformer encoder from 
-              <strong>4 layers to 6 layers</strong>, increasing model capacity and representation power</li>
-              <li><strong>Robot-Specific Optimization:</strong> Design choices specifically targeting the 
-              Unitree G1's unique characteristics and constraints</li>
+    <div class="content has-text-justified" style="margin-top: 2rem;">
+      <div class="box" style="background: white; padding: 2rem;">
+        <h3 class="title is-5"><span class="gradient-text">Two-Stage Training Architecture</span></h3>
+        <p>
+          MIRAGE employs a <strong>teacher-student framework</strong> to realize sparse-to-torque control. 
+          The training process consists of two stages: (1) a goal-conditioned expert policy is trained 
+          with reinforcement learning under domain-randomized dynamics, and (2) a compact student 
+          policy is distilled from this expert using DAgger-style online imitation, operating directly 
+          from SCHEMA-formatted sparse commands and history-conditioned inputs.
+        </p>
+        
+        <h3 class="title is-5" style="margin-top: 1.5rem;"><span class="gradient-text">Stage 1: Teacher Training</span></h3>
+        <p style="margin-top: 1rem; font-size: 1.05rem; line-height: 1.8;">
+          The teacher policy π⋆ is a <strong>goal-conditioned reinforcement learning policy</strong> trained 
+          in simulation under domain-randomized dynamics. It receives the current state s<sub>t</sub>, a dense 
+          short-horizon reference motion g<sub>full</sub><sup>t</sup> retargeted from <strong>AMASS</strong>, 
+          terrain features h<sub>terr</sub><sup>t</sup>, and a history-based embedding of recent states and actions. 
+          The teacher is optimized with PPO and generalized advantage estimation (GAE), maximizing a reward 
+          that combines kinematic tracking terms, balance and contact consistency penalties, control-effort 
+          regularization, and a fall penalty.
+        </p>
+        
+        <h3 class="title is-5" style="margin-top: 1.5rem;"><span class="gradient-text">Stage 2: Student Distillation</span></h3>
+        <p>
+          Deploying the teacher directly is impractical since it relies on dense simulator-only references. 
+          We therefore distill it into a student policy π<sub>θ</sub> that operates from sparse SCHEMA commands 
+          and history-conditioned inputs. Following a <strong>DAgger-style procedure</strong>, we iteratively: 
+          (1) roll out the current student in the randomized environment; (2) query the expert on the visited 
+          states to obtain target actions and kinematic quantities; (3) update the student to minimize an 
+          imitation loss combining torque-matching, velocity-matching, root orientation matching, and power 
+          regularization terms.
+        </p>
+        
+        <div style="background: var(--background-secondary); padding: 1.5rem; border-radius: 8px; border-left: 4px solid var(--primary-color); margin-top: 1rem;">
+          <h4 class="title is-6" style="margin-bottom: 0.8rem;">
+            <i class="fas fa-graduation-cap"></i> Experimental Setup
+          </h4>
+          <ul style="margin-left: 1.5rem;">
+            <li><strong>Robot Platform:</strong> Unitree-style G1 humanoid with 29 actuated DoF</li>
+            <li><strong>Control Frequency:</strong> 30 Hz torque-level control</li>
+            <li><strong>Training Simulator:</strong> Isaac Lab with contact-rich rigid-body dynamics</li>
+            <li><strong>Evaluation:</strong> Zero-shot transfer to Genesis physics engine</li>
+            <li><strong>Motion Dataset:</strong> AMASS motion corpus covering locomotion, balance, manipulation-style poses, and recovery motions</li>
+            <li><strong>Evaluation Metrics:</strong> Success rate (%), global pose error (E<sub>g-mpjpe</sub>), local pose error (E<sub>mpjpe</sub>)</li>
             </ul>
           </div>
-          <div class="column is-4 has-text-centered">
-            <div style="background: white; padding: 1.5rem; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
-              <i class="fas fa-robot" style="font-size: 4rem; color: #667eea; margin-bottom: 1rem;"></i>
-              <h4 class="title is-6" style="margin-bottom: 0.5rem;">Unitree G1</h4>
-              <p class="has-text-grey" style="font-size: 0.9rem;">Optimized Target Platform</p>
+            </div>
+          </div>
+    
+    <!-- Domain Randomization Strategy -->
+    <div style="margin-top: 3rem;">
+      <h3 class="title is-4 has-text-centered" style="margin-bottom: 2rem;">
+        <span class="gradient-text">Domain Randomization Strategy</span>
+      </h3>
+      <div class="content" style="margin-top: 2rem;">
+        <div class="box" style="background: var(--gradient-primary); padding: 2.5rem; color: white;">
+          <h4 class="title is-5" style="color: white; margin-bottom: 1.5rem;">
+            <i class="fas fa-shield-alt"></i> Bridging the Sim-to-Real Gap
+          </h4>
+          <p style="font-size: 1.1rem; line-height: 1.8; margin-bottom: 1.5rem;">
+            Our Domain Randomization (DR) strategy is carefully designed to <strong>balance model performance 
+            with diverse domain coverage</strong>, ensuring robust sim-to-sim and potential sim-to-real transfer. 
+            The approach introduces controlled variations across multiple aspects of the simulation environment:
+          </p>
+        </div>
+        
+        <div class="columns is-multiline" style="margin-top: 2rem;">
+          <div class="column is-6">
+            <div class="box" style="height: 100%; border: 2px solid var(--primary-color); background: var(--gradient-box-white);">
+              <h4 class="title is-5 has-text-centered" style="color: var(--primary-color); margin-bottom: 1.5rem;">
+                <i class="fas fa-eye"></i> Observation Randomization
+          </h4>
+              <div style="padding: 1rem;">
+                <div style="background: white; padding: 1rem; border-radius: 8px; margin-bottom: 1rem; box-shadow: 0 2px 8px rgba(0,0,0,0.08);">
+                  <h5 class="title is-6" style="margin-bottom: 0.5rem;">
+                    <i class="fas fa-adjust"></i> Sensor Noise
+                  </h5>
+                  <p>
+                    <strong>Slight observation noise</strong> is added to sensor readings, simulating 
+                    real-world measurement uncertainties while maintaining model accuracy.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+          
+          <div class="column is-6">
+            <div class="box" style="height: 100%; border: 2px solid var(--primary-dark); background: var(--gradient-box-white);">
+              <h4 class="title is-5 has-text-centered" style="color: var(--primary-dark); margin-bottom: 1.5rem;">
+                <i class="fas fa-cog"></i> Physical Parameter Randomization
+              </h4>
+              <div style="padding: 1rem;">
+                <ul style="list-style: none; padding: 0;">
+                  <li style="background: white; padding: 0.8rem; border-radius: 6px; margin-bottom: 0.8rem; box-shadow: 0 2px 6px rgba(0,0,0,0.06);">
+                    <strong><i class="fas fa-weight-hanging" style="color: var(--primary-color);"></i> Body Mass:</strong> 
+                    Randomized within a specified range
+                  </li>
+                  <li style="background: white; padding: 0.8rem; border-radius: 6px; margin-bottom: 0.8rem; box-shadow: 0 2px 6px rgba(0,0,0,0.06);">
+                    <strong><i class="fas fa-compress-arrows-alt" style="color: var(--primary-color);"></i> Joint Stiffness:</strong> 
+                    Varied to simulate different actuator characteristics
+                  </li>
+                  <li style="background: white; padding: 0.8rem; border-radius: 6px; margin-bottom: 0.8rem; box-shadow: 0 2px 6px rgba(0,0,0,0.06);">
+                    <strong><i class="fas fa-grip-lines" style="color: var(--primary-color);"></i> Friction:</strong> 
+                    Contact friction coefficients randomized
+                  </li>
+                  <li style="background: white; padding: 0.8rem; border-radius: 6px; box-shadow: 0 2px 6px rgba(0,0,0,0.06);">
+                    <strong><i class="fas fa-tachometer-alt" style="color: var(--primary-color);"></i> Damping:</strong> 
+                    Joint damping parameters varied
+                  </li>
+                </ul>
+  </div>
+            </div>
+          </div>
+          
+          <div class="column is-6">
+            <div class="box" style="height: 100%; border: 2px solid var(--primary-color); background: var(--gradient-box-white);">
+              <h4 class="title is-5 has-text-centered" style="color: var(--primary-color); margin-bottom: 1.5rem;">
+                <i class="fas fa-clock"></i> Actuator Latency Simulation
+              </h4>
+              <div style="padding: 1rem;">
+                <div style="background: white; padding: 1rem; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.08);">
+                  <p style="margin-bottom: 0.8rem;">
+                    To mimic real-world hardware delays, <strong>joint command signals are probabilistically 
+                    delayed by 1-2 control steps</strong>, simulating:
+                  </p>
+                  <ul style="margin-left: 1.5rem;">
+                    <li>Communication latency</li>
+                    <li>Actuator response time</li>
+                    <li>Controller processing delays</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="column is-6">
+            <div class="box" style="height: 100%; border: 2px solid var(--primary-dark); background: var(--gradient-box-white);">
+              <h4 class="title is-5 has-text-centered" style="color: var(--primary-dark); margin-bottom: 1.5rem;">
+                <i class="fas fa-wind"></i> External Perturbations
+          </h4>
+              <div style="padding: 1rem;">
+                <div style="background: white; padding: 1rem; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.08);">
+                  <p style="margin-bottom: 0.8rem;">
+                    <strong>Random external forces</strong> are applied to the robot at random time intervals, 
+                    simulating:
+                  </p>
+          <ul style="margin-left: 1.5rem;">
+                    <li>Physical contacts and collisions</li>
+                    <li>Environmental disturbances</li>
+                    <li>Unexpected external interactions</li>
+          </ul>
+                </div>
+              </div>
             </div>
           </div>
         </div>
         
-        <div style="background: white; padding: 1.5rem; border-radius: 8px; margin-top: 1.5rem; box-shadow: 0 2px 8px rgba(0,0,0,0.08);">
+        <div class="box" style="background: var(--background-secondary); border-left: 5px solid var(--primary-color); margin-top: 2rem; padding: 1.5rem;">
           <h4 class="title is-6" style="margin-bottom: 1rem;">
-            <i class="fas fa-flask"></i> Ablation Design
+            <i class="fas fa-lightbulb"></i> Design Philosophy
           </h4>
-          <p style="font-size: 1.05rem; line-height: 1.7;">
-            <strong>MaskedMimic Pro</strong> serves as our <strong>controlled ablation baseline</strong>, 
-            representing <strong>MIRAGE without the MIRROR component</strong> (Memory-Integrated Robust 
-            Representation for Online Robustness). This design allows us to isolate and quantify the 
-            contribution of MIRROR's implicit memory mechanism to overall system robustness and domain 
-            transfer performance.
-          </p>
-          <div style="background: #f8f9fa; padding: 1rem; border-radius: 6px; margin-top: 1rem; border-left: 3px solid #764ba2;">
-            <p style="margin: 0; font-size: 0.95rem;">
-              <strong>💡 Key Insight:</strong> By comparing MIRAGE with MaskedMimic Pro, we directly measure 
-              the impact of action-state history integration (MIRROR) on robustness. This is an 
-              <strong>internal ablation study</strong>, not a comparison with the original published MaskedMimic baseline.
-            </p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-<!-- End MaskedMimic Pro Introduction -->
-
-<!-- Training Process -->
-<section class="section is-light">
-  <div class="container is-max-desktop">
-    <h2 class="title is-3 has-text-centered">
-      <i class="fas fa-cogs"></i> Expert Training Process
-    </h2>
-    <div class="content has-text-justified" style="margin-top: 2rem;">
-      <div class="box" style="background: white; padding: 2rem;">
-        <h3 class="title is-5"><span class="gradient-text">Training Environment Setup</span></h3>
-        <p>
-          Our expert model training follows a large-scale parallel reinforcement learning approach. 
-          We utilize the terrain configuration from the original <strong>MaskedMimic</strong> paper 
-          (shown in the terrain diversity visualization below), which provides a comprehensive set 
-          of challenging surfaces including slopes, stairs, and uneven terrain.
-        </p>
-        
-        <h3 class="title is-5" style="margin-top: 1.5rem;"><span class="gradient-text">Parallel Training Configuration</span></h3>
-        <p style="margin-top: 1rem; font-size: 1.05rem; line-height: 1.8;">
-          We deploy <strong>4,096 robots</strong> evenly distributed across the training terrain. 
-          The physics simulation runs at <strong>200 Hz</strong>, while the policy control operates 
-          at <strong>50 Hz</strong>. Training continues for a total of <strong>1 billion (1,000 million) 
-          control steps</strong>, which serves as our termination condition.
-        </p>
-        
-        <h3 class="title is-5" style="margin-top: 1.5rem;"><span class="gradient-text">Reinforcement Learning Configuration</span></h3>
-        <p>
-          Each robot executes motion capture sequences from our training dataset with weighted sampling, 
-          collecting real-time state information and comparing it against ground truth trajectories to 
-          compute reward signals for reinforcement learning optimization.
-        </p>
-        
-        <div style="background: #f8f9fa; padding: 1.5rem; border-radius: 8px; border-left: 4px solid #667eea; margin-top: 1rem;">
-          <h4 class="title is-6" style="margin-bottom: 0.8rem;">
-            <i class="fas fa-graduation-cap"></i> Training Schedule
-          </h4>
-          <ul style="margin-left: 1.5rem;">
-            <li><strong>Collection Interval:</strong> 32 control steps per training update</li>
-            <li><strong>Mini-batch Size:</strong> 16,384 samples per update</li>
-            <li><strong>Training Epochs per Update:</strong> <code>4,096 robots × 32 steps ÷ 16,384 = 8</code> internal updates</li>
-            <li><strong>Termination Condition:</strong> 1,000 million control steps at 50 Hz control frequency</li>
-          </ul>
-        </div>
-        
-        <p style="margin-top: 1.5rem;">
-          <strong>Note:</strong> This expert training configuration is <strong>identical to the mechanism 
-          described in the MaskedMimic paper</strong>, ensuring fair comparison and reproducibility. 
-          The large-scale parallel training with 4,096 robots enables efficient exploration and robust 
-          policy learning across diverse terrain conditions and motion patterns.
+          <p style="font-size: 1.05rem; line-height: 1.8;">
+            Our DR configuration strikes a <strong>careful balance</strong> between two competing objectives: 
+            <strong>(1)</strong> maintaining high task performance in the source domain, and 
+            <strong>(2)</strong> maximizing exposure to diverse input distributions that cover potential target domains. 
+            This balanced approach enables MIRAGE to achieve <strong>robust generalization</strong> across 
+            different simulators and physical conditions, as demonstrated in our sim-to-sim transfer experiments.
         </p>
       </div>
     </div>
   </div>
-</section>
-<!-- End Training Process -->
-
-<!-- Domain Randomization -->
-<section class="section">
-  <div class="container is-max-desktop">
-    <h2 class="title is-3 has-text-centered">
-      <i class="fas fa-random"></i> Domain Randomization Strategy
-    </h2>
+    
+    <!-- Training Pipeline Visualization -->
+    <div style="margin-top: 3rem;">
+      <h3 class="title is-4 has-text-centered" style="margin-bottom: 2rem;">
+        <span class="gradient-text">Training Pipeline</span>
+      </h3>
     <div class="content" style="margin-top: 2rem;">
-      <div class="box" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); padding: 2.5rem; color: white;">
+      <div class="box" style="background: var(--gradient-primary); padding: 2.5rem; color: white;">
         <h3 class="title is-4" style="color: white; margin-bottom: 1.5rem;">
           <i class="fas fa-shield-alt"></i> Bridging the Sim-to-Real Gap
         </h3>
@@ -465,8 +514,8 @@
       
       <div class="columns is-multiline" style="margin-top: 2rem;">
         <div class="column is-6">
-          <div class="box" style="height: 100%; border: 2px solid #667eea; background: linear-gradient(to bottom, #ffffff, #f8f9fa);">
-            <h4 class="title is-5 has-text-centered" style="color: #667eea; margin-bottom: 1.5rem;">
+          <div class="box" style="height: 100%; border: 2px solid var(--primary-color); background: var(--gradient-box-white);">
+            <h4 class="title is-5 has-text-centered" style="color: var(--primary-color); margin-bottom: 1.5rem;">
               <i class="fas fa-eye"></i> Observation Randomization
             </h4>
             <div style="padding: 1rem;">
@@ -484,26 +533,26 @@
         </div>
         
         <div class="column is-6">
-          <div class="box" style="height: 100%; border: 2px solid #764ba2; background: linear-gradient(to bottom, #ffffff, #f8f9fa);">
-            <h4 class="title is-5 has-text-centered" style="color: #764ba2; margin-bottom: 1.5rem;">
+          <div class="box" style="height: 100%; border: 2px solid var(--primary-dark); background: var(--gradient-box-white);">
+            <h4 class="title is-5 has-text-centered" style="color: var(--primary-dark); margin-bottom: 1.5rem;">
               <i class="fas fa-cog"></i> Physical Parameter Randomization
             </h4>
             <div style="padding: 1rem;">
               <ul style="list-style: none; padding: 0;">
                 <li style="background: white; padding: 0.8rem; border-radius: 6px; margin-bottom: 0.8rem; box-shadow: 0 2px 6px rgba(0,0,0,0.06);">
-                  <strong><i class="fas fa-weight-hanging" style="color: #667eea;"></i> Body Mass:</strong> 
+                  <strong><i class="fas fa-weight-hanging" style="color: var(--primary-color);"></i> Body Mass:</strong> 
                   Randomized within a specified range
                 </li>
                 <li style="background: white; padding: 0.8rem; border-radius: 6px; margin-bottom: 0.8rem; box-shadow: 0 2px 6px rgba(0,0,0,0.06);">
-                  <strong><i class="fas fa-compress-arrows-alt" style="color: #667eea;"></i> Joint Stiffness:</strong> 
+                  <strong><i class="fas fa-compress-arrows-alt" style="color: var(--primary-color);"></i> Joint Stiffness:</strong> 
                   Varied to simulate different actuator characteristics
                 </li>
                 <li style="background: white; padding: 0.8rem; border-radius: 6px; margin-bottom: 0.8rem; box-shadow: 0 2px 6px rgba(0,0,0,0.06);">
-                  <strong><i class="fas fa-grip-lines" style="color: #667eea;"></i> Friction:</strong> 
+                  <strong><i class="fas fa-grip-lines" style="color: var(--primary-color);"></i> Friction:</strong> 
                   Contact friction coefficients randomized
                 </li>
                 <li style="background: white; padding: 0.8rem; border-radius: 6px; box-shadow: 0 2px 6px rgba(0,0,0,0.06);">
-                  <strong><i class="fas fa-tachometer-alt" style="color: #667eea;"></i> Damping:</strong> 
+                  <strong><i class="fas fa-tachometer-alt" style="color: var(--primary-color);"></i> Damping:</strong> 
                   Joint damping parameters varied
                 </li>
               </ul>
@@ -512,8 +561,8 @@
         </div>
         
         <div class="column is-6">
-          <div class="box" style="height: 100%; border: 2px solid #667eea; background: linear-gradient(to bottom, #ffffff, #f8f9fa);">
-            <h4 class="title is-5 has-text-centered" style="color: #667eea; margin-bottom: 1.5rem;">
+          <div class="box" style="height: 100%; border: 2px solid var(--primary-color); background: var(--gradient-box-white);">
+            <h4 class="title is-5 has-text-centered" style="color: var(--primary-color); margin-bottom: 1.5rem;">
               <i class="fas fa-clock"></i> Actuator Latency Simulation
             </h4>
             <div style="padding: 1rem;">
@@ -533,8 +582,8 @@
         </div>
         
         <div class="column is-6">
-          <div class="box" style="height: 100%; border: 2px solid #764ba2; background: linear-gradient(to bottom, #ffffff, #f8f9fa);">
-            <h4 class="title is-5 has-text-centered" style="color: #764ba2; margin-bottom: 1.5rem;">
+          <div class="box" style="height: 100%; border: 2px solid var(--primary-dark); background: var(--gradient-box-white);">
+            <h4 class="title is-5 has-text-centered" style="color: var(--primary-dark); margin-bottom: 1.5rem;">
               <i class="fas fa-wind"></i> External Perturbations
             </h4>
             <div style="padding: 1rem;">
@@ -554,7 +603,7 @@
         </div>
       </div>
       
-      <div class="box" style="background: #f8f9fa; border-left: 5px solid #667eea; margin-top: 2rem; padding: 1.5rem;">
+      <div class="box" style="background: #f8f9fa; border-left: 5px solid #d4a574; margin-top: 2rem; padding: 1.5rem;">
         <h4 class="title is-6" style="margin-bottom: 1rem;">
           <i class="fas fa-lightbulb"></i> Design Philosophy
         </h4>
@@ -567,14 +616,12 @@
         </p>
       </div>
     </div>
-  </div>
-</section>
-<!-- End Domain Randomization -->
-
-<!-- Training Pipeline -->
-<section class="section">
-  <div class="container is-max-desktop">
-    <h2 class="title is-3 has-text-centered">Training Pipeline</h2>
+    
+    <!-- Training Pipeline Visualization -->
+    <div style="margin-top: 3rem;">
+      <h3 class="title is-4 has-text-centered" style="margin-bottom: 2rem;">
+        <span class="gradient-text">Training Pipeline</span>
+      </h3>
     
     <!-- Stage 1: Teacher Training -->
     <div class="box" style="margin-bottom: 2rem;">
@@ -586,40 +633,42 @@
         </div>
         <div class="column">
           <h3 class="title is-4"><span class="gradient-text">Stage 1:</span> Teacher Training</h3>
-          <p>Reinforcement learning with extensive domain randomization generates diverse, standardized trajectories that mitigate data scarcity in embodied AI.</p>
+            <p>The teacher policy π⋆ is a goal-conditioned reinforcement learning policy trained in simulation under domain-randomized dynamics. It receives dense short-horizon reference motion from AMASS, terrain features, and history-based embeddings, optimized with PPO and GAE to learn robust dense-to-torque control.</p>
           <ul style="margin-top: 1rem;">
+              <li>Goal-conditioned RL with PPO</li>
             <li>Domain randomization</li>
-            <li>Expert policy learning</li>
-            <li>Standardized data generation</li>
+              <li>MIRROR history conditioning</li>
           </ul>
         </div>
       </div>
     </div>
 
-    <!-- Stage 2: Student Training -->
+      <!-- Stage 2: Student Distillation -->
     <div class="box">
       <div class="columns is-vcentered">
         <div class="column">
-          <h3 class="title is-4"><span class="gradient-text">Stage 2:</span> Student Training</h3>
-          <p>Student policy learns from teacher demonstrations through imitation learning, incorporating MIRROR and RISE for enhanced robustness and recovery.</p>
+            <h3 class="title is-4"><span class="gradient-text">Stage 2:</span> Student Distillation</h3>
+            <p>A compact student policy π<sub>θ</sub> is distilled from the expert using DAgger-style online imitation. The student operates directly from SCHEMA-formatted sparse commands and history-conditioned inputs (MIRROR), learning to match the teacher's robust behavior while exposed to its own state distribution.</p>
           <ul style="margin-top: 1rem;">
-            <li>Imitation learning</li>
-            <li>Robustness integration</li>
-            <li>Recovery behavior learning</li>
+              <li>DAgger-style online distillation</li>
+              <li>SCHEMA sparse command interface</li>
+              <li>MIRROR history conditioning</li>
           </ul>
         </div>
         <div class="column is-two-thirds">
           <figure class="image">
             <img src="static/images/student_training_stage2.jpg" alt="Student Training Stage 2">
           </figure>
+          </div>
         </div>
       </div>
     </div>
   </div>
 </section>
+<!-- End Training Methodology -->
 
 <!-- Divider: Experimental Results -->
-<section class="hero is-small" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); padding: 3rem 0;">
+<section class="hero is-small" style="background: var(--gradient-primary); padding: 3rem 0;">
     <div class="container">
     <h1 class="title is-2 has-text-centered has-text-white">
       <i class="fas fa-flask"></i> Experimental Results & Validation
@@ -627,6 +676,456 @@
     <p class="subtitle is-4 has-text-centered has-text-white" style="margin-top: 1rem;">
       Comprehensive evaluation demonstrating MIRAGE's superior performance across diverse scenarios
     </p>
+  </div>
+</section>
+
+<!-- Sim-to-Sim Transfer Comparison -->
+<section class="section is-light">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3 has-text-centered">Sim-to-Sim Transfer Performance Comparison</h2>
+    <div class="content has-text-centered" style="margin-bottom: 2rem;">
+      <p class="is-size-5">
+        Zero-shot transfer performance from IsaacLab (training) to Genesis (unseen physics engine). All methods are evaluated without collecting test-domain data for retraining.
+      </p>
+    </div>
+    
+    <!-- Performance Table -->
+    <div class="box" style="margin-bottom: 2rem; background: var(--background-secondary);">
+      <h4 class="title is-5 has-text-centered" style="margin-bottom: 1.5rem;">Overall Performance Comparison (4,900 motions)</h4>
+      <p class="has-text-centered" style="margin-bottom: 1rem; font-size: 0.9rem; color: #666;">
+        Genesis results are evaluated in a zero-shot manner without collecting test-domain data for retraining. 
+        Best results are <strong>bold</strong>; second-best are <u>underlined</u>.
+      </p>
+      <div class="table-container" style="overflow-x: auto;">
+        <table class="table is-fullwidth is-striped" style="font-size: 0.85rem;">
+          <thead>
+            <tr>
+              <th rowspan="2">Method</th>
+              <th colspan="3">IsaacLab</th>
+              <th colspan="3">IsaacLab + DR</th>
+              <th colspan="3">Genesis</th>
+              <th colspan="3">Genesis + DR</th>
+            </tr>
+            <tr>
+              <th>Succ.<br>(%)↑</th>
+              <th>E<sub>g-mpjpe</sub><br>(mm)↓</th>
+              <th>E<sub>mpjpe</sub><br>(mm)↓</th>
+              <th>Succ.<br>(%)↑</th>
+              <th>E<sub>g-mpjpe</sub><br>(mm)↓</th>
+              <th>E<sub>mpjpe</sub><br>(mm)↓</th>
+              <th>Succ.<br>(%)↑</th>
+              <th>E<sub>g-mpjpe</sub><br>(mm)↓</th>
+              <th>E<sub>mpjpe</sub><br>(mm)↓</th>
+              <th>Succ.<br>(%)↑</th>
+              <th>E<sub>g-mpjpe</sub><br>(mm)↓</th>
+              <th>E<sub>mpjpe</sub><br>(mm)↓</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>MaskedMimic</strong></td>
+              <td>32.1</td>
+              <td>376</td>
+              <td>182</td>
+              <td>&lt;10</td>
+              <td>713</td>
+              <td>283</td>
+              <td>&lt;10</td>
+              <td>742</td>
+              <td>322</td>
+              <td>&lt;10</td>
+              <td>738</td>
+              <td>326</td>
+            </tr>
+            <tr>
+              <td><strong>OmniH2O</strong></td>
+              <td><u>85.2</u></td>
+              <td>266</td>
+              <td>132</td>
+              <td><u>83.2</u></td>
+              <td>282</td>
+              <td>168</td>
+              <td><u>72.3</u></td>
+              <td>312</td>
+              <td>165</td>
+              <td><u>70.2</u></td>
+              <td>335</td>
+              <td>191</td>
+            </tr>
+            <tr>
+              <td><strong>ExBody2</strong></td>
+              <td>86.6</td>
+              <td><u>247</u></td>
+              <td><u>108</u></td>
+              <td>85.9</td>
+              <td><u>237</u></td>
+              <td><u>128</u></td>
+              <td>73.1</td>
+              <td><u>305</u></td>
+              <td><u>157</u></td>
+              <td>69.4</td>
+              <td>342</td>
+              <td>202</td>
+            </tr>
+            <tr>
+              <td><strong>Hover</strong></td>
+              <td>71.2</td>
+              <td>278</td>
+              <td>138</td>
+              <td>67.9</td>
+              <td>375</td>
+              <td>196</td>
+              <td>16.2</td>
+              <td>722</td>
+              <td>258</td>
+              <td>15.5</td>
+              <td>746</td>
+              <td>282</td>
+            </tr>
+            <tr style="background: var(--gradient-primary-medium); font-weight: bold;">
+              <td><strong class="gradient-text">MIRAGE (Ours)</strong></td>
+              <td><strong class="gradient-text">90.7</strong></td>
+              <td><strong class="gradient-text">102</strong></td>
+              <td><strong class="gradient-text">76</strong></td>
+              <td><strong class="gradient-text">88.4</strong></td>
+              <td><strong class="gradient-text">124</strong></td>
+              <td><strong class="gradient-text">87</strong></td>
+              <td><strong class="gradient-text">86.0</strong></td>
+              <td><strong class="gradient-text">162</strong></td>
+              <td><strong class="gradient-text">96</strong></td>
+              <td><strong class="gradient-text">84.4</strong></td>
+              <td><strong class="gradient-text">171</strong></td>
+              <td><strong class="gradient-text">108</strong></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    
+    <div class="columns is-multiline">
+      <div class="column is-4">
+        <div class="box" style="height: 100%;">
+          <h3 class="title is-5 has-text-centered" style="margin-bottom: 1rem; min-height: 3.5rem; display: flex; align-items: center; justify-content: center;">
+            <span><strong>MaskedMimic</strong><br>32.1% → &lt;10%</span>
+          </h3>
+          <video controls style="width: 100%; border-radius: 8px;">
+            <source src="static/videos/g1_no_DR_fall_down.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+          <p class="has-text-grey" style="margin-top: 1rem;">
+            <strong>Catastrophic Failure:</strong> Performs poorly even in the training environment (32.1% success), 
+            achieving only &lt;10% success in Genesis. This reflects its design focus on animation-quality motion 
+            synthesis rather than torque-level execution on complex humanoid platforms.
+          </p>
+        </div>
+      </div>
+      
+      <div class="column is-4">
+        <div class="box" style="height: 100%;">
+          <h3 class="title is-5 has-text-centered" style="margin-bottom: 1rem; min-height: 3.5rem; display: flex; align-items: center; justify-content: center;">
+            <span><strong>ExBody2</strong><br>86.6% → 73.1%</span>
+          </h3>
+          <video controls style="width: 100%; border-radius: 8px;">
+            <source src="static/videos/maskedmimic_sim2sim_vs_mirage.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+          <p class="has-text-grey" style="margin-top: 1rem;">
+            <strong>Moderate Transfer:</strong> Achieves reasonable performance in IsaacLab (86.6%) but suffers 
+            substantial degradation in Genesis (73.1%), with tracking errors increasing from 247mm to 305mm. 
+            This suggests limited sim-to-sim robustness.
+          </p>
+        </div>
+      </div>
+      
+      <div class="column is-4">
+        <div class="box" style="height: 100%;">
+          <h3 class="title is-5 has-text-centered" style="margin-bottom: 1rem; min-height: 3.5rem; display: flex; align-items: center; justify-content: center;">
+            <span><strong class="gradient-text">MIRAGE</strong><br>90.7% → 86.0%</span>
+          </h3>
+          <video controls style="width: 100%; border-radius: 8px;">
+            <source src="static/videos/genesis_g1_walk.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+          <p class="has-text-grey" style="margin-top: 1rem;">
+            <strong>Superior Transfer:</strong> Achieves 90.7% success in IsaacLab and maintains 86.0% in zero-shot 
+            Genesis transfer, with only modest error increase (102mm → 162mm). MIRROR's historical memory enables 
+            domain-aware adaptation, allowing the policy to sense Genesis-specific dynamics and adjust accordingly.
+          </p>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Key Insight Box -->
+    <div class="box" style="background: var(--gradient-primary); color: white; margin-top: 3rem; padding: 2rem;">
+      <h4 class="title is-5" style="color: white; margin-bottom: 1rem;">
+        <i class="fas fa-lightbulb"></i> Why Does MIRROR Make the Difference?
+      </h4>
+      <p style="font-size: 1.05rem; line-height: 1.8;">
+        MIRROR's action-state history provides the robot with <strong>"proprioceptive intuition"</strong> — 
+        the ability to sense its own historical states and actions. Without this memory, models trained 
+        under DR learn a <em>unified policy</em> that averages across all domains but cannot perceive 
+        domain-specific characteristics. While this prevents complete failure (as seen in ExBody2 and OmniH2O), 
+        it sacrifices optimal performance by lacking the ability to identify the current domain and adapt 
+        its strategy accordingly. In contrast, MIRROR enables <strong>domain-aware adaptation</strong>, 
+        allowing the policy to switch to the optimal strategy for each specific domain, achieving strong 
+        zero-shot sim-to-sim transfer without any target-domain fine-tuning.
+      </p>
+    </div>
+  </div>
+</section>
+<!-- End Sim-to-Sim Transfer Comparison -->
+
+<!-- Ablation Studies -->
+<section class="section">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3 has-text-centered">
+      <i class="fas fa-flask"></i> Ablation Studies
+    </h2>
+    <div class="content" style="margin-top: 2rem;">
+      <div class="box" style="background: var(--gradient-box-light); padding: 2rem; border-left: 5px solid var(--primary-color);">
+        <h3 class="title is-5" style="margin-bottom: 1.5rem;">
+          <span class="gradient-text">Component Analysis</span>
+        </h3>
+        <p style="font-size: 1.1rem; line-height: 1.8; margin-bottom: 1.5rem;">
+          We conduct ablation studies to analyze the contribution of domain randomization (DR) and the MIRROR module 
+          under both training and zero-shot testing conditions. The results demonstrate that both components play 
+          complementary roles for MIRAGE to achieve robust torque-level control under cross-domain and perturbed settings.
+        </p>
+        
+        <div class="box" style="background: white; padding: 1.5rem; border-radius: 8px; margin-top: 1.5rem; box-shadow: 0 2px 8px rgba(0,0,0,0.08);">
+          <h4 class="title is-6" style="margin-bottom: 1rem;">
+            <i class="fas fa-chart-bar"></i> Ablation Results
+          </h4>
+          <div class="table-container" style="overflow-x: auto; margin-top: 1rem;">
+            <table class="table is-fullwidth is-striped" style="font-size: 0.9rem;">
+              <thead>
+                <tr>
+                  <th>Method</th>
+                  <th>IsaacLab<br>Succ. (%)</th>
+                  <th>IsaacLab + DR<br>Succ. (%)</th>
+                  <th>Genesis<br>Succ. (%)</th>
+                  <th>Genesis + DR<br>Succ. (%)</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr style="background: var(--gradient-primary-medium); font-weight: bold;">
+                  <td><strong class="gradient-text">MIRAGE</strong></td>
+                  <td><strong>90.7</strong></td>
+                  <td><strong>88.4</strong></td>
+                  <td><strong>86.0</strong></td>
+                  <td><strong>84.4</strong></td>
+                </tr>
+                <tr>
+                  <td><strong>MIRAGE w/o DR</strong></td>
+                  <td>79.8</td>
+                  <td>&lt;10</td>
+                  <td>&lt;10</td>
+                  <td>&lt;10</td>
+                </tr>
+                <tr>
+                  <td><strong>MIRAGE w/o MIRROR</strong></td>
+                  <td>91.3</td>
+                  <td>70.5</td>
+                  <td>&lt;10</td>
+                  <td>&lt;10</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          
+          <div style="background: var(--background-secondary); padding: 1rem; border-radius: 6px; margin-top: 1rem; border-left: 3px solid var(--primary-dark);">
+            <p style="margin: 0; font-size: 0.95rem;">
+              <strong>💡 Key Findings:</strong> (1) Removing domain randomization leads to severe performance collapse 
+              once test-time perturbations or simulator changes are introduced, confirming DR is essential for robust 
+              generalization. (2) Removing MIRROR causes a different failure pattern: performance remains competitive 
+              in the training environment (91.3% vs. 90.7%) but degrades sharply under domain shifts, highlighting MIRROR's role as an 
+              implicit dynamics memory that allows online adaptation to latent changes in simulator parameters. 
+              (3) In the fixed IsaacLab environment, MIRAGE w/o MIRROR achieves slightly higher success (91.3% vs. 90.7%) 
+              because without the memory factor, more model capacity can focus on processing other inputs (e.g., future frames). 
+              With MIRROR, the per-frame varying memory tokens act as additional noise-like inputs, requiring a larger proportion 
+              of model weights to transform dynamic memory factors into fixed "proprioceptive" representations. However, MIRROR 
+              is designed to address domain shift problems, and in a fixed, known domain, this mechanism does not provide an advantage 
+              and may slightly reduce performance by allocating capacity to unnecessary adaptation mechanisms.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Ablation Training Curves -->
+    <div style="margin-top: 3rem;">
+      <h3 class="title is-4 has-text-centered" style="margin-bottom: 2rem;">
+        <span class="gradient-text">Ablation Training Curves Comparison</span>
+      </h3>
+    <div class="content has-text-justified" style="margin-top: 2rem; margin-bottom: 2rem;">
+      <p style="font-size: 1.05rem; line-height: 1.8;">
+        Training curves comparing <span class="gradient-text">MIRAGE</span> with ablation variants across different metrics. 
+        The curves demonstrate the contribution of each component (domain randomization and MIRROR) to the overall performance 
+        and training stability of the framework.
+      </p>
+    </div>
+    
+    <div class="columns is-centered">
+      <div class="column">
+        <div class="content has-text-centered">
+          <figure class="image">
+            <img src="static/images/method_comparison.png" alt="Ablation Training Curves - Method Comparison">
+          </figure>
+          <p class="has-text-grey" style="margin-top: 1rem;">
+            Training curves comparing MIRAGE with ablation variants (w/o DR, w/o MIRROR) across different performance metrics.
+          </p>
+        </div>
+      </div>
+    </div>
+    
+    <div class="columns is-centered" style="margin-top: 3rem;">
+      <div class="column">
+        <div class="content has-text-centered">
+          <figure class="image">
+            <img src="static/images/metrics_comparison1.png" alt="Ablation Training Curves - Metrics Comparison">
+          </figure>
+          <p class="has-text-grey" style="margin-top: 1rem;">
+            Detailed metrics comparison showing the impact of domain randomization and MIRROR on training dynamics and final performance.
+          </p>
+  </div>
+      </div>
+    </div>
+    
+    <!-- Ablation Results on Genesis Test Dataset -->
+    <div style="margin-top: 3rem;">
+      <h3 class="title is-4 has-text-centered" style="margin-bottom: 2rem;">
+        <span class="gradient-text">Ablation Results on Genesis Test Dataset</span>
+      </h3>
+    <div class="columns is-centered">
+      <div class="column">
+        <div class="content has-text-centered">
+          <figure class="image">
+              <img src="static/images/all_metrics_eval_combined.png" alt="Ablation Comparison on Genesis Test Dataset" style="border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
+          </figure>
+          <p class="has-text-grey" style="margin-top: 1rem;">
+              <strong>Ablation comparison on Genesis test dataset:</strong> Performance evaluation of MIRAGE and its ablation variants 
+              (w/o DR, w/o MIRROR) across multiple metrics in the Genesis environment. The results demonstrate the contribution of 
+              domain randomization and MIRROR to the overall performance, with MIRAGE achieving superior results across trajectory 
+              tracking, disturbance recovery, terrain robustness, and sim-to-sim transfer scenarios.
+            </p>
+          </div>
+        </div>
+      </div>
+      </div>
+    </div>
+  </section>
+<!-- End Ablation Studies -->
+
+<!-- Policy Structure and Generalization Comparison -->
+<section class="section is-light">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3 has-text-centered">Policy Structure and Generalization Comparison</h2>
+    
+    <div class="content has-text-justified" style="margin-top: 2rem;">
+      <p style="font-size: 1.05rem; line-height: 1.8; margin-bottom: 2rem;">
+        We compare MIRAGE with existing methods across key dimensions of policy structure and generalization capabilities. 
+        Our method uniquely combines a <strong>unified expert policy</strong> with <strong>masked generalization</strong>, 
+        enabling training with domain randomization and zero-shot transfer to unseen domains. Unlike methods that rely 
+        solely on multi-expert architectures (MaskedMimic) or lack domain adaptation mechanisms (ExBody2, OmniH2O), 
+        MIRAGE integrates <strong>domain-aware adaptation</strong> through MIRROR's historical memory, allowing the 
+        policy to sense domain-specific dynamics and switch to optimal strategies without explicit domain labels. This 
+        comprehensive approach distinguishes MIRAGE from prior work, which typically excels in only a subset of these capabilities.
+      </p>
+    </div>
+    
+    <div class="box" style="background: var(--background-secondary);">
+      <div class="table-container" style="overflow-x: auto;">
+        <table class="table is-fullwidth is-striped" style="font-size: 0.9rem;">
+          <thead>
+            <tr>
+              <th>Method</th>
+              <th>Unified<br>Expert Policy</th>
+              <th>Masked<br>Generalization</th>
+              <th>Training<br>with DR</th>
+              <th>Zero-shot<br>Transfer</th>
+              <th>Domain<br>Awareness</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr style="background: var(--gradient-primary-medium); font-weight: bold;">
+              <td><strong class="gradient-text">MIRAGE (Ours)</strong></td>
+              <td><strong>✓</strong></td>
+              <td><strong>✓</strong></td>
+              <td><strong>✓</strong></td>
+              <td><strong>✓</strong></td>
+              <td><strong>✓</strong></td>
+            </tr>
+            <tr>
+              <td><strong>BumbleBee (BB)</strong></td>
+              <td>×</td>
+              <td>×</td>
+              <td>∼</td>
+              <td>×</td>
+              <td>×</td>
+            </tr>
+            <tr>
+              <td><strong>HOVER</strong></td>
+              <td>×</td>
+              <td>✓</td>
+              <td>∼</td>
+              <td>✓</td>
+              <td>∼</td>
+            </tr>
+            <tr>
+              <td><strong>MaskedMimic</strong></td>
+              <td>✓</td>
+              <td>✓</td>
+              <td>×</td>
+              <td>×</td>
+              <td>×</td>
+            </tr>
+            <tr>
+              <td><strong>ASAP</strong></td>
+              <td>×</td>
+              <td>×</td>
+              <td>∼</td>
+              <td>×</td>
+              <td>∼</td>
+            </tr>
+            <tr>
+              <td><strong>PHC</strong></td>
+              <td>×</td>
+              <td>×</td>
+              <td>×</td>
+              <td>×</td>
+              <td>×</td>
+            </tr>
+            <tr>
+              <td><strong>PULSE</strong></td>
+              <td>×</td>
+              <td>×</td>
+              <td>×</td>
+              <td>×</td>
+              <td>×</td>
+            </tr>
+            <tr>
+              <td><strong>ExBody2</strong></td>
+              <td>×</td>
+              <td>×</td>
+              <td>∼</td>
+              <td>✓</td>
+              <td>∼</td>
+            </tr>
+            <tr>
+              <td><strong>OmniH2O</strong></td>
+              <td>✓</td>
+              <td>×</td>
+              <td>∼</td>
+              <td>✓</td>
+              <td>∼</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="has-text-centered" style="margin-top: 1rem; font-size: 0.85rem; color: #666;">
+        <strong>Notation:</strong> ✓ explicitly supported; × not supported; ∼ partially supported / indirectly enabled.
+      </p>
+    </div>
   </div>
 </section>
 
@@ -669,14 +1168,14 @@
       </div>
       
       <div class="column is-6">
-        <div class="box" style="height: 100%; background: linear-gradient(to bottom right, #f8f9fa, #e9ecef); border: 2px dashed #667eea;">
+        <div class="box" style="height: 100%; background: linear-gradient(to bottom right, var(--background-secondary), #e9ecef); border: 2px dashed var(--primary-color);">
           <h3 class="title is-5 has-text-centered" style="margin-bottom: 1rem;">
-            <span class="gradient-text">RISE</span> <span style="font-size: 0.8rem; color: #667eea;">🔮 Future Work</span>
+            <span class="gradient-text">RISE</span> <span style="font-size: 0.8rem; color: var(--primary-color);">🔮 Future Work</span>
           </h3>
           <div style="display: flex; align-items: center; justify-content: center; min-height: 300px; background: white; border-radius: 8px; padding: 2rem;">
             <div style="text-align: center;">
-              <i class="fas fa-lightbulb" style="font-size: 4rem; color: #667eea; margin-bottom: 1rem;"></i>
-              <p style="font-size: 1.2rem; color: #667eea; font-weight: bold;">Conceptual Design</p>
+              <i class="fas fa-lightbulb" style="font-size: 4rem; color: var(--primary-color); margin-bottom: 1rem;"></i>
+              <p style="font-size: 1.2rem; color: var(--primary-color); font-weight: bold;">Conceptual Design</p>
             </div>
           </div>
           <p class="has-text-grey" style="margin-top: 1rem;">
@@ -718,92 +1217,7 @@
 </section>
 <!-- End Live Demonstrations -->
 
-<!-- Sim-to-Sim Transfer Comparison -->
-<section class="section is-light">
-  <div class="container is-max-desktop">
-    <h2 class="title is-3 has-text-centered">Sim-to-Sim Transfer Performance Comparison</h2>
-    <div class="content has-text-centered" style="margin-bottom: 2rem;">
-      <p class="is-size-5">
-        Direct comparison of sim-to-sim transfer performance: IsaacLab → Genesis simulator
-      </p>
-    </div>
-    
-    <div class="columns is-multiline">
-      <div class="column is-4">
-        <div class="box" style="height: 100%;">
-          <h3 class="title is-5 has-text-centered" style="margin-bottom: 1rem; min-height: 3.5rem; display: flex; align-items: center; justify-content: center;">
-            <span><span class="gradient-text">MaskedMimic Pro</span><br>(No DR)</span>
-          </h3>
-          <video controls style="width: 100%; border-radius: 8px;">
-            <source src="static/videos/g1_no_DR_fall_down.mp4" type="video/mp4">
-            Your browser does not support the video tag.
-          </video>
-          <p class="has-text-grey" style="margin-top: 1rem;">
-            <strong>Poor Transfer:</strong> Trained in IsaacLab without DR, then transferred to Genesis. 
-            The policy overfits to the source simulator's specific dynamics and completely fails when 
-            encountering Genesis's different physics engine, demonstrating catastrophic sim-to-sim transfer failure.
-          </p>
-        </div>
-      </div>
-      
-      <div class="column is-4">
-        <div class="box" style="height: 100%;">
-          <h3 class="title is-5 has-text-centered" style="margin-bottom: 1rem; min-height: 3.5rem; display: flex; align-items: center; justify-content: center;">
-            <span><span class="gradient-text">MaskedMimic Pro</span><br>(With DR)</span>
-          </h3>
-          <video controls style="width: 100%; border-radius: 8px;">
-            <source src="static/videos/maskedmimic_sim2sim_vs_mirage.mp4" type="video/mp4">
-            Your browser does not support the video tag.
-          </video>
-          <p class="has-text-grey" style="margin-top: 1rem;">
-            <strong>Moderate Transfer:</strong> Trained in IsaacLab with DR, then transferred to Genesis. 
-            DR prevents complete failure by exposing the model to varied dynamics. However, without historical 
-            memory, it learns a unified policy averaging across domains, unable to adapt to Genesis-specific 
-            characteristics for optimal performance.
-          </p>
-        </div>
-      </div>
-      
-      <div class="column is-4">
-        <div class="box" style="height: 100%;">
-          <h3 class="title is-5 has-text-centered" style="margin-bottom: 1rem; min-height: 3.5rem; display: flex; align-items: center; justify-content: center;">
-            <span><span class="gradient-text">MIRAGE</span><br>(With DR)</span>
-          </h3>
-          <video controls style="width: 100%; border-radius: 8px;">
-            <source src="static/videos/genesis_g1_walk.mp4" type="video/mp4">
-            Your browser does not support the video tag.
-          </video>
-          <p class="has-text-grey" style="margin-top: 1rem;">
-            <strong>Superior Transfer:</strong> Trained in IsaacLab with DR, then transferred to Genesis. 
-            MIRROR's historical memory enables domain-aware adaptation: the policy senses Genesis-specific 
-            dynamics through action-state history and switches to the optimal strategy, achieving robust 
-            and natural locomotion.
-          </p>
-        </div>
-      </div>
-    </div>
-    
-    <!-- Key Insight Box -->
-    <div class="box" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; margin-top: 3rem; padding: 2rem;">
-      <h4 class="title is-5" style="color: white; margin-bottom: 1rem;">
-        <i class="fas fa-lightbulb"></i> Why Does MIRROR Make the Difference?
-      </h4>
-      <p style="font-size: 1.05rem; line-height: 1.8;">
-        <strong>We hypothesize that historical memory is essential for handling DR environments.</strong> 
-        MIRROR's action-state history provides the robot with <strong>"proprioceptive intuition"</strong> — 
-        the ability to sense its own historical states and actions. Without this memory, models trained 
-        under DR learn a <em>unified policy</em> that averages across all domains but cannot perceive 
-        domain-specific characteristics. While this prevents complete failure (as seen in MaskedMimic Pro 
-        with DR), it sacrifices optimal performance by lacking the ability to identify the current domain 
-        and adapt its strategy accordingly. In contrast, MIRROR enables <strong>domain-aware adaptation</strong>, 
-        allowing the policy to switch to the optimal strategy for each specific domain.
-      </p>
-    </div>
-  </div>
-</section>
-<!-- End Sim-to-Sim Transfer Comparison -->
-
-<!-- Evaluation Process -->
+<!-- Evaluation Framework -->
 <section class="section is-light">
   <div class="container is-max-desktop">
     <h2 class="title is-3 has-text-centered">Evaluation Framework</h2>
@@ -823,64 +1237,78 @@
   </div>
 </section>
 
-<!-- Method Comparison -->
+<!-- Representative Motion Demonstrations -->
 <section class="section">
   <div class="container is-max-desktop">
-    <h2 class="title is-3 has-text-centered">Method Comparison</h2>
-    <div class="columns is-centered">
-      <div class="column">
-        <div class="content has-text-centered">
-          <figure class="image">
-            <img src="static/images/method_comparison.png" alt="Method Comparison">
-          </figure>
-          <p class="has-text-grey" style="margin-top: 1rem;">
-            <span class="gradient-text">MIRAGE</span> vs. baseline approaches: 
-            our unified framework integrates data generation, robustness, and recovery in a single pipeline.
-          </p>
-        </div>
-      </div>
-      </div>
+    <h2 class="title is-3 has-text-centered">Representative Motion Demonstrations</h2>
+    <div class="content has-text-centered" style="margin-bottom: 2rem;">
+      <p class="is-size-5">
+        MIRAGE performance across six representative motions under <strong>zero-shot domain transfer</strong> to the 
+        <strong>unseen Genesis environment</strong> (unseen physics engine). All videos demonstrate robust execution 
+        without target-domain fine-tuning.
+      </p>
     </div>
-  </section>
-
-<!-- Quantitative Results -->
-<section class="section is-light">
-  <div class="container is-max-desktop">
-    <h2 class="title is-3 has-text-centered">Quantitative Results</h2>
     
-    <!-- Success Rate Comparison -->
-    <div class="columns is-centered" style="margin-bottom: 3rem;">
-      <div class="column">
-        <div class="content has-text-centered">
-          <h3 class="title is-4 has-text-centered" style="margin-bottom: 1.5rem;">
-            <span class="gradient-text">Success Rate Comparison</span>
-          </h3>
-          <figure class="image">
-            <img src="static/images/eval_combined.png" alt="Success Rate Comparison" style="border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
-          </figure>
-          <p class="has-text-grey" style="margin-top: 1rem;">
-            <strong>Test Set Evaluation after 1000M training steps:</strong> MIRAGE achieves <strong class="gradient-text">90.7%</strong> success rate without domain randomization, 
-            significantly outperforming MaskedMimic Pro (76.6%) and MaskedMimic (29.5%). Under domain randomization, MIRAGE maintains <strong class="gradient-text">88.4%</strong> 
-            success rate, demonstrating superior robustness.
-          </p>
+    <div class="columns is-multiline">
+      <!-- Row 1 -->
+      <div class="column is-4">
+        <div class="box" style="height: 100%;">
+          <h3 class="title is-5 has-text-centered" style="margin-bottom: 1rem;">Punch</h3>
+          <video controls style="width: 100%; border-radius: 8px;">
+            <source src="static/videos/eval/1_punch/mirage/tmp_video.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
         </div>
       </div>
+      
+      <div class="column is-4">
+        <div class="box" style="height: 100%;">
+          <h3 class="title is-5 has-text-centered" style="margin-bottom: 1rem;">Get Up</h3>
+          <video controls style="width: 100%; border-radius: 8px;">
+            <source src="static/videos/eval/2_getup/mirage/tmp_video.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+        </div>
+      </div>
+      
+      <div class="column is-4">
+        <div class="box" style="height: 100%;">
+          <h3 class="title is-5 has-text-centered" style="margin-bottom: 1rem;">High Kick</h3>
+          <video controls style="width: 100%; border-radius: 8px;">
+            <source src="static/videos/eval/3_high_kick/mirage/tmp_video.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+      </div>
     </div>
-
-    <!-- Comprehensive Metrics -->
-    <div class="columns is-centered">
-      <div class="column">
-        <div class="content has-text-centered">
-          <h3 class="title is-4 has-text-centered" style="margin-bottom: 1.5rem;">
-            <span class="gradient-text">Comprehensive Performance Metrics</span>
-          </h3>
-          <figure class="image">
-            <img src="static/images/all_metrics_eval_combined.png" alt="All Metrics Evaluation" style="border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
-          </figure>
-          <p class="has-text-grey" style="margin-top: 1rem;">
-            <strong>Multi-dimensional evaluation across all metrics:</strong> MIRAGE consistently outperforms baseline methods across trajectory tracking, 
-            push recovery, fall recovery, and sim-to-sim transfer scenarios, demonstrating comprehensive superiority in humanoid control tasks.
-          </p>
+    
+      <!-- Row 2 -->
+      <div class="column is-4">
+        <div class="box" style="height: 100%;">
+          <h3 class="title is-5 has-text-centered" style="margin-bottom: 1rem;">Common Walk</h3>
+          <video controls style="width: 100%; border-radius: 8px;">
+            <source src="static/videos/eval/4_common_walk/mirage/tmp_video.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+    </div>
+  </div>
+      
+      <div class="column is-4">
+        <div class="box" style="height: 100%;">
+          <h3 class="title is-5 has-text-centered" style="margin-bottom: 1rem;">Side Walk</h3>
+          <video controls style="width: 100%; border-radius: 8px;">
+            <source src="static/videos/eval/5_side_walk/mirage/tmp_video.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+        </div>
+      </div>
+      
+      <div class="column is-4">
+        <div class="box" style="height: 100%;">
+          <h3 class="title is-5 has-text-centered" style="margin-bottom: 1rem;">Martial</h3>
+          <video controls style="width: 100%; border-radius: 8px;">
+            <source src="static/videos/eval/6_martial/mirage/tmp_video.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
         </div>
       </div>
     </div>
@@ -911,14 +1339,13 @@
   <section class="section" id="BibTeX">
     <div class="container is-max-desktop content">
         <h2 class="title">BibTeX</h2>
-    <pre><code>@misc{wang2025mirage,
+    <pre><code>@inproceedings{wang2026mirage,
   title={MIRAGE: Masked Imitation for Robotic Action Generation and Execution},
   author={Wang, Puyue},
-  year={2025},
-  institution={University of Auckland},
-  note={COMPSCI 792 Project},
-  url={https://github.com/tonywang-0517/Mirage},
-  howpublished={GitHub Repository}
+  booktitle={Proceedings of the 39th International Conference on Machine Learning (ICML)},
+  year={2026},
+  organization={University of Auckland},
+  url={https://github.com/tonywang-0517/Mirage}
 }</code></pre>
     </div>
 </section>
