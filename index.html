@@ -38,7 +38,6 @@
   <style>
     .hero.is-fullheight {
       background-color: var(--primary-color);
-      background-image: url('static/images/bg.png');
       background-position: center center;
       background-size: cover;
       background-repeat: no-repeat;
@@ -236,13 +235,7 @@
         <h2 class="title is-3">Abstract</h2>
         <div class="content has-text-justified">
           <p>
-            Humanoid robots can suffer significant performance drops under small changes in dynamics, task specifications, or environment setup. We propose <strong class="gradient-text">HoRD</strong>, a <strong>two-stage learning framework</strong> for robust humanoid control under domain shift. First, we train a high-performance teacher policy via <strong>history-conditioned reinforcement learning</strong>, where the policy infers latent dynamics context from recent state–action trajectories to adapt online to diverse randomized dynamics. Second, we perform <strong>online distillation</strong> to transfer the teacher's robust control capabilities into a transformer-based student policy that operates on <strong>sparse root-relative 3D joint keypoint trajectories</strong>.
-          </p>
-          <p>
-            By combining history-conditioned adaptation with online distillation, HoRD enables a single policy to adapt zero-shot to unseen domains without per-domain retraining. The framework relies on two core components: <strong>SSJR</strong> (Standardized Sparse-Joint Representation), which unifies fragmented motion sources into a platform-agnostic sparse-joint command interface; and <strong>HCDR</strong> (History-Conditioned Dynamics Representation), which encodes recent state–action history into a temporal memory embedding for online dynamics inference and adaptive modulation.
-          </p>
-          <p>
-            Extensive experiments on a Unitree-style G1 humanoid show that HoRD achieves <strong>90.7%</strong> success rate in the training simulator (IsaacLab) and <strong>86.0%</strong> success rate in zero-shot transfer to an unseen physics engine (Genesis), outperforming strong baselines including MaskedMimic, OmniH2O, ExBody2, and Hover. We also release a large-scale trajectory dataset of 7,000+ diverse humanoid motions (100+ hours) to support community benchmarking.
+            Humanoid robots can suffer significant performance drops under small changes in dynamics, task specifications, or environment setup. We propose <strong class="gradient-text">HoRD</strong>, a <strong>two-stage learning framework</strong> for robust humanoid control under domain shift. First, we train a high-performance teacher policy via <strong>history-conditioned reinforcement learning</strong>, where the policy infers latent dynamics context from recent state–action trajectories to adapt online to diverse randomized dynamics. Second, we perform <strong>online distillation</strong> to transfer the teacher’s robust control capabilities into a <strong>transformer-based</strong> student policy that operates on <strong>sparse root-relative 3D joint keypoint trajectories</strong>. By combining history-conditioned adaptation with online distillation, HoRD enables a single policy to adapt zero-shot to unseen domains without per-domain retraining. Extensive experiments indicate that HoRD attains stronger robustness and transfer performance than several state-of-the-art baselines, particularly under unseen domains and external perturbations.
           </p>
         </div>
       </div>
@@ -289,7 +282,7 @@
         </span>
       </h4>
       <p class="is-size-5">
-        HoRD achieves <strong class="gradient-text">86.0%</strong> success rate in zero-shot transfer to Genesis (unseen domain), outperforming ExBody2 (<strong>73.1%</strong>) and OmniH2O (<strong>72.3%</strong>). Under domain randomization, HoRD maintains <strong class="gradient-text">84.4%</strong> success rate while most baselines experience substantial performance degradation.
+        HoRD achieves a <strong class="gradient-text">86.0%</strong> success rate in zero-shot transfer to Genesis (unseen domain), exceeding several strong baselines such as ExBody2 and OmniH2O. Under additional domain randomization, HoRD maintains a <strong class="gradient-text">84.4%</strong> success rate, while alternative methods exhibit noticeably larger performance drops.
       </p>
 </div>
 </div>
@@ -506,55 +499,6 @@
           We use <strong>episode-level</strong> domain randomization: ψ<sup>(e)</sup> is sampled at the start of each episode and held fixed, giving temporally consistent dynamics. Parameters randomized include inertial properties (masses, CoM, joint damping), contact dynamics (friction, stiffness), control delay, and periodic external forces. This enables HoRD to achieve <strong>robust generalization</strong> across simulators and physical conditions, as shown in sim-to-sim transfer to Genesis.
         </p>
       </div>
-    </div>
-  </div>
-    
-    <!-- Training Pipeline Visualization -->
-    <div style="margin-top: 3rem;">
-      <h3 class="title is-4 has-text-centered" style="margin-bottom: 2rem;">
-        <span class="gradient-text">Training Pipeline</span>
-      </h3>
-    
-    <!-- Stage 1: Expert Training -->
-    <div class="box" style="margin-bottom: 2rem;">
-      <div class="columns is-vcentered">
-        <div class="column is-two-thirds">
-          <figure class="image">
-            <img src="static/images/teacher_training_stage1.jpg" alt="HoRD Stage I: Expert Training">
-          </figure>
-        </div>
-        <div class="column">
-          <h3 class="title is-4"><span class="gradient-text">Stage I:</span> Expert Training</h3>
-            <p>The expert policy π⋆ is trained with PPO in simulation under episode-level domain randomization. It receives full state, dense future motion intent from AMASS, and HCDR temporal memory m<sub>t</sub>, and outputs PD control modulation.</p>
-          <ul style="margin-top: 1rem;">
-              <li>PPO with domain randomization</li>
-            <li>HCDR history conditioning</li>
-              <li>Dense motion intent Y<sub>t</sub><sup>full</sup></li>
-          </ul>
-        </div>
-      </div>
-    </div>
-
-      <!-- Stage 2: Student Distillation -->
-    <div class="box">
-      <div class="columns is-vcentered">
-        <div class="column">
-            <h3 class="title is-4"><span class="gradient-text">Stage II:</span> Student Distillation</h3>
-            <p>The student policy is distilled from the expert via supervised imitation. It receives sparse observations and SSJR-formatted sparse motion commands Y<sub>t</sub><sup>sparse</sup>, plus the same HCDR memory m<sub>t</sub>, and learns to match the expert's actions.</p>
-          <ul style="margin-top: 1rem;">
-              <li>Online distillation (e.g., DAgger-style)</li>
-              <li>SSJR sparse command interface</li>
-              <li>HCDR history conditioning</li>
-          </ul>
-        </div>
-        <div class="column is-two-thirds">
-          <figure class="image">
-            <img src="static/images/student_training_stage2.jpg" alt="HoRD Stage II: Student Distillation">
-          </figure>
-          </div>
-        </div>
-      </div>
-    </div>
   </div>
 </section>
 <!-- End Training Methodology -->
@@ -698,16 +642,11 @@
       <div class="column is-4">
         <div class="box" style="height: 100%;">
           <h3 class="title is-5 has-text-centered" style="margin-bottom: 1rem; min-height: 3.5rem; display: flex; align-items: center; justify-content: center;">
-            <span><strong>MaskedMimic</strong><br>32.1% → &lt;10%</span>
+            <span><strong>MaskedMimic</strong><br>Train → OOD</span>
           </h3>
-          <video controls style="width: 100%; border-radius: 8px;">
-            <source src="static/videos/g1_no_DR_fall_down.mp4" type="video/mp4">
-            Your browser does not support the video tag.
-          </video>
+          <img src="static/images/gif/g1_no_DR_fall_down.gif" alt="MaskedMimic failure under dynamics shift" style="width: 100%; border-radius: 8px;">
           <p class="has-text-grey" style="margin-top: 1rem;">
-            <strong>Catastrophic Failure:</strong> Performs poorly even in the training environment (32.1% success), 
-            achieving only &lt;10% success in Genesis. This reflects its design focus on animation-quality motion 
-            synthesis rather than PD control execution on complex humanoid platforms.
+            <strong>Challenging Transfer:</strong> In this setting MaskedMimic struggles to maintain stability under a substantial dynamics change, highlighting the difficulty of using animation-focused controllers for torque-level sim-to-sim transfer.
           </p>
         </div>
       </div>
@@ -715,16 +654,11 @@
       <div class="column is-4">
         <div class="box" style="height: 100%;">
           <h3 class="title is-5 has-text-centered" style="margin-bottom: 1rem; min-height: 3.5rem; display: flex; align-items: center; justify-content: center;">
-            <span><strong>ExBody2</strong><br>86.6% → 73.1%</span>
+            <span><strong>ExBody2</strong><br>Train → OOD</span>
           </h3>
-          <video controls style="width: 100%; border-radius: 8px;">
-            <source src="static/videos/maskedmimic_sim2sim_vs_hord.mp4" type="video/mp4">
-            Your browser does not support the video tag.
-          </video>
+          <img src="static/images/gif/maskedmimic_sim2sim_vs_hord.gif" alt="ExBody2 sim-to-sim transfer" style="width: 100%; border-radius: 8px;">
           <p class="has-text-grey" style="margin-top: 1rem;">
-            <strong>Moderate Transfer:</strong> Achieves reasonable performance in IsaacLab (86.6%) but suffers 
-            substantial degradation in Genesis (73.1%), with tracking errors increasing from 247mm to 305mm. 
-            This suggests limited sim-to-sim robustness.
+            <strong>Moderate Transfer:</strong> ExBody2 maintains locomotion under domain shift, but with noticeably increased tracking errors and reduced stability compared to its training environment.
           </p>
         </div>
       </div>
@@ -732,16 +666,11 @@
       <div class="column is-4">
         <div class="box" style="height: 100%;">
           <h3 class="title is-5 has-text-centered" style="margin-bottom: 1rem; min-height: 3.5rem; display: flex; align-items: center; justify-content: center;">
-            <span><strong class="gradient-text">HoRD</strong><br>90.7% → 86.0%</span>
+            <span><strong class="gradient-text">HoRD</strong><br>Train → OOD</span>
           </h3>
-          <video controls style="width: 100%; border-radius: 8px;">
-            <source src="static/videos/genesis_g1_walk.mp4" type="video/mp4">
-            Your browser does not support the video tag.
-          </video>
+          <img src="static/images/gif/genesis_g1_walk.gif" alt="HoRD sim-to-sim transfer to Genesis" style="width: 100%; border-radius: 8px;">
           <p class="has-text-grey" style="margin-top: 1rem;">
-            <strong>Superior Transfer:</strong> HoRD achieves 90.7% success in IsaacLab and maintains 86.0% in zero-shot 
-            Genesis transfer, with only modest error increase (102mm → 162mm). HCDR's history-conditioned representation enables 
-            online dynamics inference, allowing the policy to adapt to Genesis-specific dynamics without target-domain fine-tuning.
+            <strong>Robust Transfer:</strong> HoRD maintains high success rates and low tracking error under sim-to-sim transfer to Genesis, with HCDR enabling online dynamics inference and adaptation without target-domain fine-tuning.
           </p>
         </div>
       </div>
@@ -1043,10 +972,7 @@
           <h3 class="title is-5 has-text-centered" style="margin-bottom: 1rem;">
             <span class="gradient-text">Disturbance Recovery</span>
           </h3>
-          <video controls style="width: 100%; border-radius: 8px;">
-            <source src="static/videos/g1_random_push.mp4" type="video/mp4">
-            Your browser does not support the video tag.
-          </video>
+          <img src="static/images/gif/g1_random_push.gif" alt="HoRD disturbance recovery under random pushes" style="width: 100%; border-radius: 8px;">
           <p class="has-text-grey" style="margin-top: 1rem;">
             <strong>Random external push:</strong> HoRD quickly re-stabilizes and resumes the intended trajectory after a lateral push (zero-shot Genesis). Recovery success 85.2% (HoRD) vs. OmniH2O 71.8%, ExBody2 72.1%.
           </p>
@@ -1058,10 +984,7 @@
           <h3 class="title is-5 has-text-centered" style="margin-bottom: 1rem;">
             <span class="gradient-text">Online Distillation</span>
           </h3>
-          <video controls style="width: 100%; border-radius: 8px;">
-            <source src="static/videos/masked_mimic_g1_no_vae.mp4" type="video/mp4">
-            Your browser does not support the video tag.
-          </video>
+          <img src="static/images/gif/masked_mimic_g1_no_vae.gif" alt="Teacher–student online distillation demo" style="width: 100%; border-radius: 8px;">
           <p class="has-text-grey" style="margin-top: 1rem;">
             <strong>Teacher–student distillation:</strong> The student policy is trained by online distillation to match the expert's actions using only sparse SSJR commands and HCDR history, enabling deployable control from sparse inputs.
           </p>
@@ -1088,30 +1011,21 @@
       <div class="column is-4">
         <div class="box" style="height: 100%;">
           <h3 class="title is-5 has-text-centered" style="margin-bottom: 1rem;">Punch</h3>
-          <video controls style="width: 100%; border-radius: 8px;">
-            <source src="static/videos/eval/1_punch/hord/tmp_video.mp4" type="video/mp4">
-            Your browser does not support the video tag.
-          </video>
+          <img src="static/images/gif/1_punch_hord.gif" alt="HoRD punch motion in Genesis" style="width: 100%; border-radius: 8px;">
         </div>
       </div>
       
       <div class="column is-4">
         <div class="box" style="height: 100%;">
           <h3 class="title is-5 has-text-centered" style="margin-bottom: 1rem;">Get Up</h3>
-          <video controls style="width: 100%; border-radius: 8px;">
-            <source src="static/videos/eval/2_getup/hord/tmp_video.mp4" type="video/mp4">
-            Your browser does not support the video tag.
-          </video>
+          <img src="static/images/gif/2_getup_hord.gif" alt="HoRD get-up motion in Genesis" style="width: 100%; border-radius: 8px;">
         </div>
       </div>
       
       <div class="column is-4">
         <div class="box" style="height: 100%;">
           <h3 class="title is-5 has-text-centered" style="margin-bottom: 1rem;">High Kick</h3>
-          <video controls style="width: 100%; border-radius: 8px;">
-            <source src="static/videos/eval/3_high_kick/hord/tmp_video.mp4" type="video/mp4">
-            Your browser does not support the video tag.
-          </video>
+          <img src="static/images/gif/3_high_kick_hord.gif" alt="HoRD high-kick motion in Genesis" style="width: 100%; border-radius: 8px;">
       </div>
     </div>
     
@@ -1119,30 +1033,21 @@
       <div class="column is-4">
         <div class="box" style="height: 100%;">
           <h3 class="title is-5 has-text-centered" style="margin-bottom: 1rem;">Common Walk</h3>
-          <video controls style="width: 100%; border-radius: 8px;">
-            <source src="static/videos/eval/4_common_walk/hord/tmp_video.mp4" type="video/mp4">
-            Your browser does not support the video tag.
-          </video>
+          <img src="static/images/gif/4_common_walk_hord.gif" alt="HoRD common walk motion in Genesis" style="width: 100%; border-radius: 8px;">
     </div>
   </div>
       
       <div class="column is-4">
         <div class="box" style="height: 100%;">
           <h3 class="title is-5 has-text-centered" style="margin-bottom: 1rem;">Side Walk</h3>
-          <video controls style="width: 100%; border-radius: 8px;">
-            <source src="static/videos/eval/5_side_walk/hord/tmp_video.mp4" type="video/mp4">
-            Your browser does not support the video tag.
-          </video>
+          <img src="static/images/gif/5_side_walk_hord.gif" alt="HoRD side-walk motion in Genesis" style="width: 100%; border-radius: 8px;">
         </div>
       </div>
       
       <div class="column is-4">
         <div class="box" style="height: 100%;">
           <h3 class="title is-5 has-text-centered" style="margin-bottom: 1rem;">Martial</h3>
-          <video controls style="width: 100%; border-radius: 8px;">
-            <source src="static/videos/eval/6_martial/hord/tmp_video.mp4" type="video/mp4">
-            Your browser does not support the video tag.
-          </video>
+          <img src="static/images/gif/6_martial_hord.gif" alt="HoRD martial-arts motion in Genesis" style="width: 100%; border-radius: 8px;">
         </div>
       </div>
     </div>
