@@ -1,7 +1,7 @@
 # HoRD: Robust Humanoid Control via History-Conditioned Reinforcement Learning and Online Distillation
 
 [![GitHub](https://img.shields.io/badge/GitHub-Repository-blue?logo=github)](https://github.com/tonywang-0517/hord)
-[![Project](https://img.shields.io/badge/Project-Page-green)](https://tonywang-0517.github.io/mirage.github.io/)
+[![Project](https://img.shields.io/badge/Project-Page-green)](https://tonywang-0517.github.io/hord/)
 
 Project page for **HoRD: Robust Humanoid Control via History-Conditioned Reinforcement Learning and Online Distillation** by Puyue Wang, Jiawei Hu, Yan Gao, Junyan Wang, Yu Zhang, Gillian Dobbie, Tao Gu, Wafa Johal, Ting Dang, Hong Jia (2026).
 
@@ -23,7 +23,7 @@ Humanoid robots can suffer significant performance drops under small changes in 
 
 ## Links
 
-- **Project Page**: [https://tonywang-0517.github.io/mirage.github.io/](https://tonywang-0517.github.io/mirage.github.io/)
+- **Project Page**: [https://tonywang-0517.github.io/hord/](https://tonywang-0517.github.io/hord/)
 - **GitHub Repository**: [https://github.com/tonywang-0517/hord](https://github.com/tonywang-0517/hord)
 - **Paper**: [Coming soon]
 - **Video**: [YouTube](https://www.youtube.com/watch?v=YOUR_VIDEO_ID) (Coming soon)
@@ -31,7 +31,7 @@ Humanoid robots can suffer significant performance drops under small changes in 
 ## Project Structure
 
 ```
-mirage.github.io/
+hord/
 ├── index.html              # Main project page
 ├── static/
 │   ├── css/               # Stylesheets

@@ -5,14 +5,14 @@
   <meta name="description" content="HoRD: Robust Humanoid Control via History-Conditioned Reinforcement Learning and Online Distillation">
   <meta property="og:title" content="HoRD: Robust Humanoid Control via History-Conditioned RL and Online Distillation"/>
   <meta property="og:description" content="Two-stage learning framework for robust humanoid control under domain shift with SSJR and HCDR"/>
-  <meta property="og:url" content="https://tonywang-0517.github.io/mirage.github.io"/>
-  <meta property="og:image" content="https://tonywang-0517.github.io/mirage.github.io/static/images/poster_banner.jpg" />
+  <meta property="og:url" content="https://tonywang-0517.github.io/hord"/>
+  <meta property="og:image" content="https://tonywang-0517.github.io/hord/static/images/hord_overview.png" />
   <meta property="og:image:width" content="1200"/>
   <meta property="og:image:height" content="630"/>
 
   <meta name="twitter:title" content="HoRD: Robust Humanoid Control via History-Conditioned RL and Online Distillation">
   <meta name="twitter:description" content="Two-stage framework for robust humanoid control with history-conditioned dynamics and online distillation">
-  <meta name="twitter:image" content="https://tonywang-0517.github.io/mirage.github.io/static/images/poster_banner.jpg">
+  <meta name="twitter:image" content="https://tonywang-0517.github.io/hord/static/images/hord_overview.png">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="keywords" content="humanoid robotics, reinforcement learning, whole-body control, domain randomization, online distillation, HCDR, SSJR">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -67,7 +67,7 @@
       background: rgba(255, 255, 255, 0.93);
       padding: 2rem 2.5rem;
       border-radius: 15px;
-      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+      /* box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15); */
       backdrop-filter: blur(10px);
       margin: auto;
     }
@@ -85,7 +85,6 @@
     }
     .component-box {
       background: var(--background-secondary);
-      border-left: 4px solid var(--primary-color);
       padding: 1.5rem;
       margin-bottom: 1rem;
       border-radius: 8px;
@@ -147,7 +146,7 @@
               <h1 class="title is-2 publication-title is-size-4-mobile" style="margin-bottom: 0.5rem; width: 80%; margin-left: auto; margin-right: auto;">
                 <img src="static/images/logo.png" alt="HoRD logo" style="height: 1.5em; vertical-align: -0.25em; margin-right: 0.2em;">HoRD: Robust Humanoid Control via <span style="text-decoration: underline; text-decoration-color: #000000;">H</span>istory-C<span style="text-decoration: underline; text-decoration-color: #000000;">o</span>nditioned <span style="text-decoration: underline; text-decoration-color: #000000;">R</span>einforcement Learning and Online <span style="text-decoration: underline; text-decoration-color: #000000;">D</span>istillation
               </h1>
-              <p class="is-size-6" style="margin-bottom: 1.5rem; color: rgba(255, 255, 255, 0.9);">
+              <p class="is-size-6" style="margin-bottom: 1.5rem; color: var(--text-secondary);">
                 Two-stage learning framework for robust humanoid control under domain shift
               </p>
     
@@ -183,13 +182,12 @@
                   <a href="https://scholar.google.com/citations?hl=en&user=Q9ExZbAAAAAJ" target="_blank">Hong Jia</a><sup>1†</sup>
                   </span>
                   </div>
-              <div class="is-size-6 publication-authors" style="margin-bottom: 0.5rem; font-size: 0.85rem; color: #666;">
-                <span class="author-block"><sup>†</sup>Corresponding author: hong.jia@auckland.ac.nz</span>
-                  </div>
-
-              <div class="is-size-6 publication-authors" style="margin-bottom: 1.5rem;">
+              <div class="is-size-6 publication-authors" style="margin-bottom: 0.5rem;">
                 <span class="author-block"><sup>1</sup>University of Auckland &nbsp; <sup>2</sup>University of New South Wales &nbsp; <sup>3</sup>University of Cambridge &nbsp; <sup>4</sup>University of Adelaide &nbsp; <sup>5</sup>Macquarie University &nbsp; <sup>6</sup>University of Melbourne</span>
-                  </div>
+              </div>
+              <div class="is-size-6 publication-authors" style="margin-bottom: 1.5rem; font-size: 0.85rem;">
+                <span class="author-block"><sup>†</sup>Corresponding author</span>
+              </div>
 
               <div class="column has-text-centered" style="padding-top: 0;">
                     <div class="publication-links">
@@ -201,12 +199,29 @@
                         <span>Paper (coming soon)</span>
                       </a>
                     </span>
+                    <span class="link-block">
+                      <a target="_blank" href="#" class="external-link button is-normal is-rounded is-dark">
+                        <span class="icon">
+                          <i class="ai ai-arxiv"></i>
+                        </span>
+                        <span>arXiv (coming soon)</span>
+                      </a>
+                    </span>
                   <span class="link-block">
                     <a target="_blank" href="https://github.com/tonywang-0517/hord" class="external-link button is-normal is-rounded is-dark">
                     <span class="icon">
                       <i class="fab fa-github"></i>
                     </span>
                     <span>Code (coming soon)</span>
+                  </a>
+                </span>
+
+                <span class="link-block">
+                  <a target="_blank" href="#" class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="fas fa-robot"></i>
+                    </span>
+                    <span>HuggingFace Models (coming soon)</span>
                   </a>
                 </span>
 
@@ -256,9 +271,9 @@
             <img src="static/images/hord_overview.png" alt="HoRD Framework Overview">
           </figure>
           <p class="has-text-grey" style="margin-top: 1rem;">
-            <span class="gradient-text">HoRD</span> is a two-stage teacher–student framework for robust humanoid control under partial observability.
-            In <strong>Stage I</strong>, a PPO-trained expert with full-state access and episode-level domain randomization uses <strong>HCDR</strong> to encode recent interaction history into a temporal memory for online dynamics inference.
-            In <strong>Stage II</strong>, a deployable student with sparse proprioception and standardized motion commands via <strong>SSJR</strong> is distilled from the expert, reusing the same HCDR embedding to execute sparse-joint inputs from diverse motion sources or planners.
+            <strong>Framework overview.</strong> Two-stage teacher–student learning pipeline for robust humanoid control under partial observability.
+            <strong>Stage I</strong>: an expert policy π⋆ is trained with PPO in simulation using privileged full-state observations s<sub>t</sub><sup>full</sup>, dense future motion intent Y<sub>t</sub><sup>full</sup>, and episode-level domain randomization ψ<sup>(e)</sup>. A shared <strong>HCDR</strong> module encodes the interaction history H<sub>t</sub> into a temporal memory embedding m<sub>t</sub> for online dynamics inference and adaptive modulation.
+            <strong>Stage II</strong>: a deployable student policy π receives only sparse proprioception s<sub>t</sub><sup>sparse</sup>, environment context g<sub>t</sub>, and standardized motion commands Y<sub>t</sub><sup>sparse</sup> via <strong>SSJR</strong>, and is trained by distillation to match the expert’s actions. SSJR maps a global planner command into a platform-agnostic sparse-joint command interface, enabling cross-platform transfer, while HCDR provides in-context adaptation to latent dynamics during deployment.
           </p>
         </div>
       </div>
@@ -321,7 +336,7 @@
           The student receives only sparse observations s<sub>t</sub><sup>sparse</sup> and sparse future motion cues Y<sub>t</sub><sup>sparse</sup> via SSJR, plus the same m<sub>t</sub>. It is trained via supervised distillation (e.g., MSE on actions) to match the expert's actions. By sharing the temporal memory and SSJR interface across both stages, the student recovers the expert's anticipatory behavior and remains robust across physical and environmental conditions.
         </p>
         
-        <div style="background: var(--background-secondary); padding: 1.5rem; border-radius: 8px; border-left: 4px solid var(--primary-color); margin-top: 1rem;">
+        <div style="background: var(--background-secondary); padding: 1.5rem; border-radius: 8px; margin-top: 1rem;">
           <h4 class="title is-6" style="margin-bottom: 0.8rem;">
             Experimental Setup
           </h4>
@@ -342,7 +357,7 @@
         Domain Randomization Strategy
       </h3>
       <div class="content has-text-justified" style="margin-top: 1.5rem;">
-        <div class="box" style="background: white; padding: 2rem; border-left: 4px solid var(--primary-color);">
+        <div class="box" style="background: white; padding: 2rem;">
           <p style="font-size: 1.05rem; line-height: 1.8; margin-bottom: 1.2rem;">
             We use <strong>episode-level domain randomization</strong>: a dynamics parameter vector ψ<sup>(e)</sup> is sampled once at the start of each episode and held fixed, so the policy infers latent dynamics from interaction history rather than uncorrelated noise.
           </p>
@@ -524,7 +539,7 @@
     </div>
     
     <!-- Key Insight: HCDR -->
-    <div class="box" style="background: var(--gradient-box-light); padding: 2rem; border-left: 5px solid var(--primary-color); margin-top: 3rem;">
+    <div class="box" style="background: var(--gradient-box-light); padding: 2rem; margin-top: 3rem;">
       <h3 class="title is-5" style="margin-bottom: 1.5rem;">
         <span class="gradient-text">Why Does HCDR Make the Difference?</span>
       </h3>
@@ -548,7 +563,7 @@
       Ablation Studies
     </h2>
     <div class="content" style="margin-top: 2rem;">
-      <div class="box" style="background: var(--gradient-box-light); padding: 2rem; border-left: 5px solid var(--primary-color);">
+      <div class="box" style="padding: 2rem;">
         <h3 class="title is-5" style="margin-bottom: 1.5rem;">
           <span class="gradient-text">Component Analysis</span>
         </h3>
@@ -599,7 +614,7 @@
             </table>
           </div>
           
-          <div style="background: var(--background-secondary); padding: 1rem; border-radius: 6px; margin-top: 1rem; border-left: 3px solid var(--primary-dark);">
+          <div style="background: var(--background-secondary); padding: 1rem; border-radius: 6px; margin-top: 1rem;">
             <p style="margin: 0; font-size: 0.95rem;">
               <strong>Key findings:</strong> (1) Removing domain randomization (w/o D) causes severe collapse under test-time perturbations or simulator change. 
               (2) Removing HCDR (w/o H) keeps competitive performance on the training distribution but degrades sharply under distribution shift (e.g., near-zero success in Genesis), highlighting HCDR's role as a learned dynamics adaptation mechanism for online adaptation to latent simulator and contact variations.
@@ -720,14 +735,14 @@
 <!-- Policy Structure and Generalization Comparison (Table 5 in Appendix A.3) -->
 <section class="section is-light">
   <div class="container is-max-desktop">
-    <h2 class="title is-3 has-text-centered">Deployment-Relevant Capabilities Comparison</h2>
+    <h2 class="title is-3 has-text-centered">Comparison of Deployment Capabilities</h2>
     
     <div class="content has-text-justified" style="margin-top: 2rem;">
       <p style="font-size: 1.05rem; line-height: 1.8; margin-bottom: 2rem;">
-        We compare HoRD with representative humanoid control frameworks along three deployment-relevant capabilities: 
+        We compare HoRD with representative humanoid control frameworks along three deployment capabilities:
         <strong>Unified Skill Coverage</strong> (single policy over diverse skills), 
         <strong>Sparse-Command Generalization</strong> (robustness when only sparse keypoint-level commands are available), and 
-        <strong>Explicit Online Dynamics Adaptation</strong> (dedicated mechanism for adapting to dynamics variations at test time). 
+        <strong>Explicit Online Dynamics Adaptation</strong> (dedicated mechanism for adapting to dynamics variations at test time).
         HoRD supports all three; prior approaches typically support only a subset.
       </p>
     </div>
@@ -811,7 +826,7 @@
 <!-- Live Demonstrations -->
 <section class="section">
   <div class="container is-max-desktop">
-    <h2 class="title is-3 has-text-centered"><span class="gradient-text">HoRD</span> Live Demonstrations</h2>
+    <h2 class="title is-3 has-text-centered">Qualitative Demonstrations</h2>
     
     <div class="columns is-multiline" style="margin-top: 2rem;">
       <div class="column is-6">
@@ -845,7 +860,7 @@
 <!-- Representative Motion Demonstrations -->
 <section class="section">
   <div class="container is-max-desktop">
-    <h2 class="title is-3 has-text-centered">Representative Motion Demonstrations</h2>
+    <h2 class="title is-3 has-text-centered">Representative Motion Results</h2>
     <div class="content has-text-centered" style="margin-bottom: 2rem;">
       <p class="is-size-5">
         HoRD performance across six representative motions (punch, get up, high kick, common walk, side walk, martial) under <strong>zero-shot transfer</strong> to the 
@@ -942,8 +957,7 @@
       <div class="column is-8">
         <div class="content">
           <p>
-            This page was built using the <a href="https://github.com/eliahuhorwitz/Academic-project-page-template" target="_blank">Academic Project Page Template</a> which was adopted from the <a href="https://nerfies.github.io" target="_blank">Nerfies</a> project page.
-            You are free to borrow the source code of this website, we just ask that you link back to this page in the footer. <br> This website is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/" target="_blank">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
+            This website is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/" target="_blank">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
           </p>
         </div>
       </div>
