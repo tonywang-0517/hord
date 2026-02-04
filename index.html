@@ -2,22 +2,22 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <meta name="description" content="MIRAGE: Robust Humanoid Control under Dynamics Mismatch - A lightweight framework for robust whole-body humanoid control">
-  <meta property="og:title" content="MIRAGE: Robust Humanoid Control under Dynamics Mismatch"/>
-  <meta property="og:description" content="A lightweight execution framework for robust whole-body humanoid control with standardized data"/>
+  <meta name="description" content="HoRD: Robust Humanoid Control via History-Conditioned Reinforcement Learning and Online Distillation">
+  <meta property="og:title" content="HoRD: Robust Humanoid Control via History-Conditioned RL and Online Distillation"/>
+  <meta property="og:description" content="Two-stage learning framework for robust humanoid control under domain shift with SSJR and HCDR"/>
   <meta property="og:url" content="https://tonywang-0517.github.io/mirage.github.io"/>
   <meta property="og:image" content="https://tonywang-0517.github.io/mirage.github.io/static/images/poster_banner.jpg" />
   <meta property="og:image:width" content="1200"/>
   <meta property="og:image:height" content="630"/>
 
-  <meta name="twitter:title" content="MIRAGE: Robust Humanoid Control under Dynamics Mismatch">
-  <meta name="twitter:description" content="A lightweight execution framework for robust whole-body humanoid control">
+  <meta name="twitter:title" content="HoRD: Robust Humanoid Control via History-Conditioned RL and Online Distillation">
+  <meta name="twitter:description" content="Two-stage framework for robust humanoid control with history-conditioned dynamics and online distillation">
   <meta name="twitter:image" content="https://tonywang-0517.github.io/mirage.github.io/static/images/poster_banner.jpg">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="keywords" content="humanoid robotics, imitation learning, reinforcement learning, whole-body control, VLA systems, masked motion">
+  <meta name="keywords" content="humanoid robotics, reinforcement learning, whole-body control, domain randomization, online distillation, HCDR, SSJR">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   
-  <title>MIRAGE: Robust Humanoid Control under Dynamics Mismatch</title>
+  <title>HoRD: Robust Humanoid Control via History-Conditioned RL and Online Distillation</title>
   <link rel="icon" type="image/x-icon" href="static/images/favicon.ico">
   <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
   
@@ -143,35 +143,53 @@
           <div class="column has-text-centered">
             <div class="content-box">
               <h1 class="title is-1 publication-title is-size-2-mobile" style="font-size: 5rem; margin-bottom: 1rem;">
-                <span class="gradient-text">MIRAGE</span>
+                <span class="gradient-text">HoRD</span>
               </h1>
-              <h1 class="title is-3 publication-title is-size-4-mobile" style="margin-bottom: 0.5rem;">
-                Robust Humanoid Control under Dynamics Mismatch
+              <h1 class="title is-3 publication-title is-size-4-mobile" style="margin-bottom: 0.5rem; width: 80%; margin-left: auto; margin-right: auto;">
+                Robust Humanoid Control via <span style="color: var(--primary-color); font-weight: bold;">H</span>istory-C<span style="color: var(--primary-color); font-weight: bold;">o</span>nditioned <span style="color: var(--primary-color); font-weight: bold;">R</span>einforcement Learning and Online <span style="color: var(--primary-color); font-weight: bold;">D</span>istillation
               </h1>
               <p class="is-size-6" style="margin-bottom: 1.5rem; color: rgba(255, 255, 255, 0.9);">
-                MIRAGE (Masked Imitation for Robotic Action Generation and Execution)
+                Two-stage learning framework for robust humanoid control under domain shift
               </p>
     
               <div class="is-size-5 publication-authors" style="margin-bottom: 0.8rem;">
                 <span class="author-block">
-                  <a href="https://github.com/tonywang-0517" target="_blank">Puyue Wang</a><sup>*</sup>,
+                  <a href="https://github.com/tonywang-0517" target="_blank">Puyue Wang</a><sup>1</sup>,
                   </span>
                 <span class="author-block">
-                  <a href="#" target="_blank">Jiawei Hu</a><sup>*</sup>,
+                  <a href="#" target="_blank">Jiawei Hu</a><sup>2</sup>,
                   </span>
-                <!-- <span class="author-block">
-                  <a href="#" target="_blank">Guo Li</a>,
-                  </span> -->
                 <span class="author-block">
-                  <a href="#" target="_blank">Hong Jia</a><sup>†</sup>
+                  <a href="#" target="_blank">Yan Gao</a><sup>3</sup>,
+                  </span>
+                <span class="author-block">
+                  <a href="#" target="_blank">Junyan Wang</a><sup>4</sup>,
+                  </span>
+                <span class="author-block">
+                  <a href="#" target="_blank">Yu Zhang</a><sup>5</sup>,
+                  </span>
+                <span class="author-block">
+                  <a href="#" target="_blank">Gillian Dobbie</a><sup>1</sup>,
+                  </span>
+                <span class="author-block">
+                  <a href="#" target="_blank">Tao Gu</a><sup>5</sup>,
+                  </span>
+                <span class="author-block">
+                  <a href="#" target="_blank">Wafa Johal</a><sup>6</sup>,
+                  </span>
+                <span class="author-block">
+                  <a href="#" target="_blank">Ting Dang</a><sup>6</sup>,
+                  </span>
+                <span class="author-block">
+                  <a href="#" target="_blank">Hong Jia</a><sup>1†</sup>
                   </span>
                   </div>
               <div class="is-size-6 publication-authors" style="margin-bottom: 0.5rem; font-size: 0.85rem; color: #666;">
-                <span class="author-block"><sup>*</sup>Co-first authors, <sup>†</sup>Corresponding author</span>
+                <span class="author-block"><sup>†</sup>Corresponding author: hong.jia@auckland.ac.nz</span>
                   </div>
 
               <div class="is-size-6 publication-authors" style="margin-bottom: 1.5rem;">
-                <span class="author-block">University of Auckland</span>
+                <span class="author-block"><sup>1</sup>University of Auckland &nbsp; <sup>2</sup>University of New South Wales &nbsp; <sup>3</sup>University of Cambridge &nbsp; <sup>4</sup>University of Adelaide &nbsp; <sup>5</sup>Macquarie University &nbsp; <sup>6</sup>University of Melbourne</span>
                   </div>
 
               <div class="column has-text-centered" style="padding-top: 0;">
@@ -185,7 +203,7 @@
                       </a>
                     </span>
                   <span class="link-block">
-                    <a target="_blank" href="https://github.com/hong-labs/Mirage" class="external-link button is-normal is-rounded is-dark">
+                    <a target="_blank" href="https://github.com/hong-labs/hord" class="external-link button is-normal is-rounded is-dark">
                     <span class="icon">
                       <i class="fab fa-github"></i>
                     </span>
@@ -218,13 +236,13 @@
         <h2 class="title is-3">Abstract</h2>
         <div class="content has-text-justified">
           <p>
-            Achieving robust <strong>whole-body humanoid control</strong> under dynamics mismatch remains a central challenge in robotics. In this work, we present <strong class="gradient-text">MIRAGE</strong> (Masked Imitation for Robotic Action Generation and Execution), <strong>a lightweight execution framework</strong> that achieves substantially higher success rates under domain shifts, enabling reliable zero-shot sim-to-sim transfer to unseen physics engines where prior methods degrade or fail. Rather than decomposing behaviors into multiple experts or relying on target-domain adapters, MIRAGE employs a single PD control policy operating from standardized sparse commands and a history-conditioned representation.
+            Humanoid robots can suffer significant performance drops under small changes in dynamics, task specifications, or environment setup. We propose <strong class="gradient-text">HoRD</strong>, a <strong>two-stage learning framework</strong> for robust humanoid control under domain shift. First, we train a high-performance teacher policy via <strong>history-conditioned reinforcement learning</strong>, where the policy infers latent dynamics context from recent state–action trajectories to adapt online to diverse randomized dynamics. Second, we perform <strong>online distillation</strong> to transfer the teacher's robust control capabilities into a transformer-based student policy that operates on <strong>sparse root-relative 3D joint keypoint trajectories</strong>.
           </p>
           <p>
-            Our framework introduces two key innovations: <strong>SCHEMA</strong> (Sparse Command Handling for Embodied Motion Abstraction), a standardized sparse-joint protocol based on SMPL-X keypoints that consolidates fragmented motion sources; and <strong>MIRROR</strong> (Memory-Integrated Robust Representation for Online Robustness), a history-conditioned control policy that leverages recent state–action sequences as implicit dynamics memory, significantly improving stability and sim-to-sim transfer.
+            By combining history-conditioned adaptation with online distillation, HoRD enables a single policy to adapt zero-shot to unseen domains without per-domain retraining. The framework relies on two core components: <strong>SSJR</strong> (Standardized Sparse-Joint Representation), which unifies fragmented motion sources into a platform-agnostic sparse-joint command interface; and <strong>HCDR</strong> (History-Conditioned Dynamics Representation), which encodes recent state–action history into a temporal memory embedding for online dynamics inference and adaptive modulation.
           </p>
           <p>
-            Extensive experiments on a Unitree-style G1 humanoid demonstrate that MIRAGE achieves <strong>90.7%</strong> success rate in the training simulator (IsaacLab) and <strong>86.0%</strong> success rate in zero-shot transfer to an unseen domain (Genesis), significantly outperforming strong baselines including MaskedMimic, OmniH2O, ExBody2, and Hover.
+            Extensive experiments on a Unitree-style G1 humanoid show that HoRD achieves <strong>90.7%</strong> success rate in the training simulator (IsaacLab) and <strong>86.0%</strong> success rate in zero-shot transfer to an unseen physics engine (Genesis), outperforming strong baselines including MaskedMimic, OmniH2O, ExBody2, and Hover. We also release a large-scale trajectory dataset of 7,000+ diverse humanoid motions (100+ hours) to support community benchmarking.
           </p>
         </div>
       </div>
@@ -236,7 +254,7 @@
 <!-- Key Metrics -->
 <section class="section">
   <div class="container is-max-desktop">
-    <h2 class="title is-3 has-text-centered"><span class="gradient-text">MIRAGE</span> Performance Highlights</h2>
+    <h2 class="title is-3 has-text-centered"><span class="gradient-text">HoRD</span> Performance Highlights</h2>
     <div class="columns is-multiline" style="margin-top: 2rem;">
       <div class="column is-3">
         <div class="metric-card">
@@ -271,7 +289,7 @@
         </span>
       </h4>
       <p class="is-size-5">
-        MIRAGE achieves <strong class="gradient-text">86.0%</strong> success rate in zero-shot transfer to Genesis (unseen domain), outperforming ExBody2 (<strong>73.1%</strong>) and OmniH2O (<strong>72.3%</strong>). Under domain randomization, MIRAGE maintains <strong class="gradient-text">84.4%</strong> success rate while most baselines experience substantial performance degradation.
+        HoRD achieves <strong class="gradient-text">86.0%</strong> success rate in zero-shot transfer to Genesis (unseen domain), outperforming ExBody2 (<strong>73.1%</strong>) and OmniH2O (<strong>72.3%</strong>). Under domain randomization, HoRD maintains <strong class="gradient-text">84.4%</strong> success rate while most baselines experience substantial performance degradation.
       </p>
 </div>
 </div>
@@ -282,16 +300,15 @@
   <div class="container is-max-desktop">
     <div class="columns is-centered">
       <div class="column">
-        <h2 class="title is-2 has-text-centered"><span class="gradient-text">MIRAGE</span> Framework</h2>
+        <h2 class="title is-2 has-text-centered"><span class="gradient-text">HoRD</span> Framework</h2>
         <div class="content has-text-centered">
-          <figure class="image">
-            <img src="static/images/mirage_overview.png" alt="MIRAGE Framework Overview">
+          <figure class="image" style="padding-left: 0; padding-right: 0; margin-left: 0; margin-right: 0;">
+            <img src="static/images/hord_overview.png" alt="HoRD Framework Overview">
           </figure>
           <p class="has-text-grey" style="margin-top: 1rem;">
-            <span class="gradient-text">MIRAGE</span> is a lightweight execution framework that realizes sparse-to-PD control 
-            through a teacher-student architecture. At a high level, MIRAGE learns a single high-frequency policy that maps 
-            sparse motion commands (SCHEMA), local observations, and a short history of recent interaction (MIRROR) into PD 
-            control targets for a humanoid robot, while remaining robust to changes in dynamics through structured domain randomization.
+            <span class="gradient-text">HoRD</span> is a two-stage teacher–student framework for robust humanoid control under partial observability. 
+            <strong>Stage I</strong>: an expert policy is trained with PPO in simulation using privileged full-state observations, dense future motion intent, and episode-level domain randomization; a shared <strong>HCDR</strong> module encodes interaction history into a temporal memory embedding for online dynamics inference. 
+            <strong>Stage II</strong>: a deployable student policy receives only sparse proprioception, environment context, and standardized motion commands via <strong>SSJR</strong>, and is trained by distillation to match the expert's actions. SSJR maps large-scale human motion data (or a global planner) into a platform-agnostic sparse-joint command interface, while HCDR provides in-context adaptation to latent dynamics during deployment.
           </p>
         </div>
       </div>
@@ -302,18 +319,18 @@
 <!-- Key Components -->
 <section class="section is-light">
   <div class="container is-max-desktop">
-    <h2 class="title is-3 has-text-centered">Two Core Innovations</h2>
+    <h2 class="title is-3 has-text-centered">Two Core Components</h2>
     <div class="columns is-multiline" style="margin-top: 2rem;">
       <div class="column is-6">
         <div class="component-box">
           <h3 class="title is-4">
             <span class="icon-text">
               <span class="icon"><i class="fas fa-code"></i></span>
-              <span class="gradient-text">SCHEMA</span>
+              <span class="gradient-text">SSJR</span>
             </span>
           </h3>
-          <p class="subtitle is-6"><strong>Standardized Sparse Command Interface</strong></p>
-          <p>SCHEMA defines a unified sparse-joint protocol based on SMPL-X keypoints, consolidating fragmented motion sources into a single training and execution format. It enables large-scale humanoid trajectory generation from datasets such as AMASS, where human motion sequences are retargeted to the humanoid, downsampled, and projected onto a set of SMPL-X key joints (e.g., hips, knees, ankles, shoulders, elbows, wrists). This standardized interface decouples perception and planning from low-level actuation, allowing different upstream generators to produce interchangeable SCHEMA packets without modifying the controller or training pipeline.</p>
+          <p class="subtitle is-6"><strong>Standardized Sparse-Joint Representation</strong></p>
+          <p>SSJR represents future motion intentions using a sparse set of key joints defined in a canonical human skeletal model (e.g., SMPL-X). Motion commands over a short-horizon lookahead are expressed as root-relative joint configurations. By projecting human motion data from large-scale motion capture datasets (e.g., AMASS) onto this canonical sparse-joint representation, SSJR abstracts away platform-specific details while preserving task-relevant motion information. At execution, the student policy receives SSJR commands along with robot proprioception and environmental context, and outputs torque modulation signals. SSJR enables data scalability, cross-platform transfer, and anticipatory control when coupled with HCDR and domain randomization.</p>
         </div>
       </div>
       
@@ -322,11 +339,11 @@
           <h3 class="title is-4">
             <span class="icon-text">
               <span class="icon"><i class="fas fa-brain"></i></span>
-              <span class="gradient-text">MIRROR</span>
+              <span class="gradient-text">HCDR</span>
             </span>
           </h3>
-          <p class="subtitle is-6"><strong>History-Integrated Dynamics Memory</strong></p>
-          <p>MIRROR aggregates a short window of past states and actions into a fixed-dimensional history embedding using a QFormer-style memory extractor. Rather than flattening the history through a simple feed-forward encoder, MIRROR performs early fusion between a learned memory-factor prior and the recent interaction trace. The resulting memory token is injected via a residual connection into the latent control representation, enabling the controller to modulate its decisions based on inferred dynamics. This provides domain awareness, allowing the policy to disambiguate which realization of the randomized dynamics it is currently operating in and adjust its control strategy accordingly. Empirically, removing MIRROR significantly degrades sim-to-sim transfer and recovery performance.</p>
+          <p class="subtitle is-6"><strong>History-Conditioned Dynamics Representation</strong></p>
+          <p>HCDR is a latent representation module that performs online dynamics inference from historical state–action interactions. It models history using a Query-Transformer (Q-Former) architecture: learnable latent tokens encode a shared prior over dynamics configurations, and the temporal memory embedding is computed via cross-attention between these tokens and the history. The resulting embedding acts as a compact dynamics fingerprint (e.g., surface friction, mass distribution, actuator delays). By conditioning the control modulation on this embedding, the policy adapts its behavior in context—adjusting gait, balance, and torque outputs based on how the environment has responded to previous actions. HCDR enables online system identification and adaptive control without direct access to latent physical parameters.</p>
         </div>
       </div>
     </div>
@@ -343,32 +360,19 @@
       <div class="box" style="background: white; padding: 2rem;">
         <h3 class="title is-5"><span class="gradient-text">Two-Stage Training Architecture</span></h3>
         <p>
-          MIRAGE employs a <strong>teacher-student framework</strong> to realize sparse-to-PD control. 
-          The training process consists of two stages: (1) a goal-conditioned expert policy is trained 
-          with reinforcement learning under domain-randomized dynamics, and (2) a compact student 
-          policy is distilled from this expert using DAgger-style online imitation, operating directly 
-          from SCHEMA-formatted sparse commands and history-conditioned inputs.
+          HoRD employs a <strong>teacher–student framework</strong>. 
+          <strong>Stage I</strong>: an expert policy π⋆ is trained with PPO in simulation using privileged full-state observations s<sub>t</sub><sup>full</sup>, dense future motion intent Y<sub>t</sub><sup>full</sup>, and episode-level domain randomization ψ<sup>(e)</sup>; the shared <strong>HCDR</strong> module encodes interaction history H<sub>t</sub> into a temporal memory embedding m<sub>t</sub>. 
+          <strong>Stage II</strong>: a student policy π is distilled from the expert via supervised imitation, operating from sparse observations s<sub>t</sub><sup>sparse</sup> and <strong>SSJR</strong>-formatted sparse motion commands Y<sub>t</sub><sup>sparse</sup>, with the same m<sub>t</sub> from HCDR.
         </p>
         
-        <h3 class="title is-5" style="margin-top: 1.5rem;"><span class="gradient-text">Stage 1: Teacher Training</span></h3>
+        <h3 class="title is-5" style="margin-top: 1.5rem;"><span class="gradient-text">Stage I: Expert Training</span></h3>
         <p style="margin-top: 1rem; font-size: 1.05rem; line-height: 1.8;">
-          The teacher policy π⋆ is a <strong>goal-conditioned reinforcement learning policy</strong> trained 
-          in simulation under domain-randomized dynamics. It receives the current state s<sub>t</sub>, a dense 
-          short-horizon reference motion g<sub>full</sub><sup>t</sup> retargeted from <strong>AMASS</strong>, 
-          terrain features h<sub>terr</sub><sup>t</sup>, and a history-based embedding of recent states and actions. 
-          The teacher is optimized with PPO and generalized advantage estimation (GAE), maximizing a reward 
-          that combines kinematic tracking terms, balance and contact consistency penalties, control-effort 
-          regularization, and a fall penalty.
+          The expert receives full state s<sub>t</sub><sup>full</sup>, dense future motion intent Y<sub>t</sub><sup>full</sup> from AMASS, environment context g<sub>t</sub>, and temporal memory m<sub>t</sub> from HCDR. It is trained with PPO to maximize expected discounted return across domain-randomized episodes, with rewards penalizing tracking error, balance loss, excessive control effort, and falls.
         </p>
         
-        <h3 class="title is-5" style="margin-top: 1.5rem;"><span class="gradient-text">Stage 2: Student Distillation</span></h3>
+        <h3 class="title is-5" style="margin-top: 1.5rem;"><span class="gradient-text">Stage II: Student Distillation</span></h3>
         <p>
-          Deploying the teacher directly is impractical since it relies on dense simulator-only references. 
-          We therefore distill it into a student policy π<sub>θ</sub> that operates from sparse SCHEMA commands 
-          and history-conditioned inputs. Following a <strong>DAgger-style procedure</strong>, we iteratively: 
-          (1) roll out the current student in the randomized environment with <strong>random mask</strong> applied to the sparse commands; 
-          (2) query the expert on the visited states to obtain target actions and kinematic quantities; 
-          (3) update the student to minimize an imitation loss combining position-matching, velocity-matching, root orientation matching, and power regularization terms.
+          The student receives only sparse observations s<sub>t</sub><sup>sparse</sup> and sparse future motion cues Y<sub>t</sub><sup>sparse</sup> via SSJR, plus the same m<sub>t</sub>. It is trained via supervised distillation (e.g., MSE on actions) to match the expert's actions. By sharing the temporal memory and SSJR interface across both stages, the student recovers the expert's anticipatory behavior and remains robust across physical and environmental conditions.
         </p>
         
         <div style="background: var(--background-secondary); padding: 1.5rem; border-radius: 8px; border-left: 4px solid var(--primary-color); margin-top: 1rem;">
@@ -376,12 +380,11 @@
             <i class="fas fa-graduation-cap"></i> Experimental Setup
           </h4>
           <ul style="margin-left: 1.5rem;">
-            <li><strong>Robot Platform:</strong> Unitree-style G1 humanoid with 29 actuated DoF</li>
-            <li><strong>Control Frequency:</strong> 50 Hz PD control</li>
-            <li><strong>Training Simulator:</strong> Isaac Lab with contact-rich rigid-body dynamics</li>
-            <li><strong>Evaluation:</strong> Zero-shot transfer to Genesis physics engine</li>
-            <li><strong>Motion Dataset:</strong> AMASS motion corpus covering locomotion, balance, manipulation-style poses, and recovery motions</li>
-            <li><strong>Evaluation Metrics:</strong> Success rate (%), global pose error (E<sub>g-mpjpe</sub>), local pose error (E<sub>mpjpe</sub>)</li>
+            <li><strong>Robot:</strong> Unitree-style G1 humanoid, 29 actuated DoF, PD control at 50 Hz</li>
+            <li><strong>Training:</strong> Isaac Lab with contact-rich rigid-body dynamics</li>
+            <li><strong>Evaluation:</strong> Zero-shot transfer to Genesis (unseen physics engine)</li>
+            <li><strong>Motion Data:</strong> AMASS motion corpus; clips retargeted and converted to SSJR</li>
+            <li><strong>Metrics:</strong> Success rate (%), E<sub>g-mpjpe</sub> (mm), E<sub>mpjpe</sub> (mm)</li>
           </ul>
         </div>
       </div>
@@ -500,11 +503,7 @@
           <i class="fas fa-lightbulb"></i> Design Philosophy
         </h4>
         <p style="font-size: 1.05rem; line-height: 1.8;">
-          Our DR configuration strikes a <strong>careful balance</strong> between two competing objectives: 
-          <strong>(1)</strong> maintaining high task performance in the source domain, and 
-          <strong>(2)</strong> maximizing exposure to diverse input distributions that cover potential target domains. 
-          This balanced approach enables MIRAGE to achieve <strong>robust generalization</strong> across 
-          different simulators and physical conditions, as demonstrated in our sim-to-sim transfer experiments.
+          We use <strong>episode-level</strong> domain randomization: ψ<sup>(e)</sup> is sampled at the start of each episode and held fixed, giving temporally consistent dynamics. Parameters randomized include inertial properties (masses, CoM, joint damping), contact dynamics (friction, stiffness), control delay, and periodic external forces. This enables HoRD to achieve <strong>robust generalization</strong> across simulators and physical conditions, as shown in sim-to-sim transfer to Genesis.
         </p>
       </div>
     </div>
@@ -516,21 +515,21 @@
         <span class="gradient-text">Training Pipeline</span>
       </h3>
     
-    <!-- Stage 1: Teacher Training -->
+    <!-- Stage 1: Expert Training -->
     <div class="box" style="margin-bottom: 2rem;">
       <div class="columns is-vcentered">
         <div class="column is-two-thirds">
           <figure class="image">
-            <img src="static/images/teacher_training_stage1.jpg" alt="Teacher Training Stage 1">
+            <img src="static/images/teacher_training_stage1.jpg" alt="HoRD Stage I: Expert Training">
           </figure>
         </div>
         <div class="column">
-          <h3 class="title is-4"><span class="gradient-text">Stage 1:</span> Teacher Training</h3>
-            <p>The teacher policy π⋆ is a goal-conditioned reinforcement learning policy trained in simulation under domain-randomized dynamics. It receives dense short-horizon reference motion from AMASS, terrain features, and history-based embeddings, optimized with PPO and GAE to learn robust dense-to-PD control.</p>
+          <h3 class="title is-4"><span class="gradient-text">Stage I:</span> Expert Training</h3>
+            <p>The expert policy π⋆ is trained with PPO in simulation under episode-level domain randomization. It receives full state, dense future motion intent from AMASS, and HCDR temporal memory m<sub>t</sub>, and outputs PD control modulation.</p>
           <ul style="margin-top: 1rem;">
-              <li>Goal-conditioned RL with PPO</li>
-            <li>Domain randomization</li>
-              <li>MIRROR history conditioning</li>
+              <li>PPO with domain randomization</li>
+            <li>HCDR history conditioning</li>
+              <li>Dense motion intent Y<sub>t</sub><sup>full</sup></li>
           </ul>
         </div>
       </div>
@@ -540,17 +539,17 @@
     <div class="box">
       <div class="columns is-vcentered">
         <div class="column">
-            <h3 class="title is-4"><span class="gradient-text">Stage 2:</span> Student Distill</h3>
-            <p>A compact student policy π<sub>θ</sub> is distilled from the expert using DAgger-style online imitation. The student operates directly from SCHEMA-formatted sparse commands with <strong>random mask</strong> and history-conditioned inputs (MIRROR), learning to match the teacher's robust behavior while exposed to its own state distribution.</p>
+            <h3 class="title is-4"><span class="gradient-text">Stage II:</span> Student Distillation</h3>
+            <p>The student policy is distilled from the expert via supervised imitation. It receives sparse observations and SSJR-formatted sparse motion commands Y<sub>t</sub><sup>sparse</sup>, plus the same HCDR memory m<sub>t</sub>, and learns to match the expert's actions.</p>
           <ul style="margin-top: 1rem;">
-              <li>DAgger-style online distillation</li>
-              <li>SCHEMA sparse command interface with random mask</li>
-              <li>MIRROR history conditioning</li>
+              <li>Online distillation (e.g., DAgger-style)</li>
+              <li>SSJR sparse command interface</li>
+              <li>HCDR history conditioning</li>
           </ul>
         </div>
         <div class="column is-two-thirds">
           <figure class="image">
-            <img src="static/images/student_training_stage2.jpg" alt="Student Training Stage 2">
+            <img src="static/images/student_training_stage2.jpg" alt="HoRD Stage II: Student Distillation">
           </figure>
           </div>
         </div>
@@ -567,7 +566,7 @@
       <i class="fas fa-flask"></i> Experimental Results & Validation
     </h1>
     <p class="subtitle is-4 has-text-centered has-text-white" style="margin-top: 1rem;">
-      Comprehensive evaluation demonstrating MIRAGE's superior performance across diverse scenarios
+      Comprehensive evaluation demonstrating HoRD's superior performance across in-domain and zero-shot transfer
     </p>
   </div>
 </section>
@@ -676,7 +675,7 @@
               <td>282</td>
             </tr>
             <tr style="background: var(--gradient-primary-medium); font-weight: bold;">
-              <td><strong class="gradient-text">MIRAGE (Ours)</strong></td>
+              <td><strong class="gradient-text">HoRD (Ours)</strong></td>
               <td><strong class="gradient-text">90.7</strong></td>
               <td><strong class="gradient-text">102</strong></td>
               <td><strong class="gradient-text">76</strong></td>
@@ -719,7 +718,7 @@
             <span><strong>ExBody2</strong><br>86.6% → 73.1%</span>
           </h3>
           <video controls style="width: 100%; border-radius: 8px;">
-            <source src="static/videos/maskedmimic_sim2sim_vs_mirage.mp4" type="video/mp4">
+            <source src="static/videos/maskedmimic_sim2sim_vs_hord.mp4" type="video/mp4">
             Your browser does not support the video tag.
           </video>
           <p class="has-text-grey" style="margin-top: 1rem;">
@@ -733,16 +732,16 @@
       <div class="column is-4">
         <div class="box" style="height: 100%;">
           <h3 class="title is-5 has-text-centered" style="margin-bottom: 1rem; min-height: 3.5rem; display: flex; align-items: center; justify-content: center;">
-            <span><strong class="gradient-text">MIRAGE</strong><br>90.7% → 86.0%</span>
+            <span><strong class="gradient-text">HoRD</strong><br>90.7% → 86.0%</span>
           </h3>
           <video controls style="width: 100%; border-radius: 8px;">
             <source src="static/videos/genesis_g1_walk.mp4" type="video/mp4">
             Your browser does not support the video tag.
           </video>
           <p class="has-text-grey" style="margin-top: 1rem;">
-            <strong>Superior Transfer:</strong> Achieves 90.7% success in IsaacLab and maintains 86.0% in zero-shot 
-            Genesis transfer, with only modest error increase (102mm → 162mm). MIRROR's historical memory enables 
-            domain-aware adaptation, allowing the policy to sense Genesis-specific dynamics and adjust accordingly.
+            <strong>Superior Transfer:</strong> HoRD achieves 90.7% success in IsaacLab and maintains 86.0% in zero-shot 
+            Genesis transfer, with only modest error increase (102mm → 162mm). HCDR's history-conditioned representation enables 
+            online dynamics inference, allowing the policy to adapt to Genesis-specific dynamics without target-domain fine-tuning.
           </p>
         </div>
       </div>
@@ -751,17 +750,15 @@
     <!-- Key Insight Box -->
     <div class="box" style="background: var(--gradient-primary); color: white; margin-top: 3rem; padding: 2rem;">
       <h4 class="title is-5" style="color: white; margin-bottom: 1rem;">
-        <i class="fas fa-lightbulb"></i> Why Does MIRROR Make the Difference?
+        <i class="fas fa-lightbulb"></i> Why Does HCDR Make the Difference?
       </h4>
       <p style="font-size: 1.05rem; line-height: 1.8;">
-        MIRROR's action-state history provides the robot with <strong>"proprioceptive intuition"</strong> — 
-        the ability to sense its own historical states and actions. Without this memory, models trained 
-        under DR must use a <em>single fixed policy</em> that attempts to work across all domains but cannot 
-        perceive domain-specific characteristics. While this prevents complete failure (as seen in ExBody2 and OmniH2O), 
-        it sacrifices optimal performance by lacking the ability to identify the current domain and adapt 
-        its strategy accordingly. In contrast, MIRROR enables <strong>domain-aware adaptation</strong>, 
-        allowing the policy to switch to the optimal strategy for each specific domain, achieving strong 
-        zero-shot sim-to-sim transfer without any target-domain fine-tuning.
+        HCDR encodes recent state–action history into a temporal memory embedding that serves as a <strong>dynamics fingerprint</strong>. 
+        Without it, policies trained under domain randomization must rely on a single fixed policy that cannot infer 
+        which latent dynamics (e.g., friction, delay, mass) are in effect. In contrast, HCDR enables <strong>online adaptation</strong>: 
+        the policy conditions on how the environment has responded to previous actions and adjusts gait, balance, and 
+        torque accordingly. This yields strong zero-shot sim-to-sim transfer to unseen physics engines (e.g., Genesis) 
+        without any target-domain data or fine-tuning.
       </p>
     </div>
   </div>
@@ -780,9 +777,9 @@
           <span class="gradient-text">Component Analysis</span>
         </h3>
         <p style="font-size: 1.1rem; line-height: 1.8; margin-bottom: 1.5rem;">
-          We conduct ablation studies to analyze the contribution of domain randomization (DR) and the MIRROR module 
-          under both training and zero-shot testing conditions. The results demonstrate that both components play 
-          complementary roles for MIRAGE to achieve robust PD control under cross-domain and perturbed settings.
+          We analyze the contribution of <strong>domain randomization (D)</strong> and the <strong>HCDR module (H)</strong> 
+          under both in-domain and zero-shot conditions. Without SSJR there is no conversion from motion to torque (Succ. &lt; 10 in all cases). 
+          The results show both D and H play complementary roles for robust PD control under cross-domain and perturbed settings.
         </p>
         
         <div class="box" style="background: white; padding: 1.5rem; border-radius: 8px; margin-top: 1.5rem; box-shadow: 0 2px 8px rgba(0,0,0,0.08);">
@@ -802,21 +799,21 @@
               </thead>
               <tbody>
                 <tr style="background: var(--gradient-primary-medium); font-weight: bold;">
-                  <td><strong class="gradient-text">MIRAGE</strong></td>
+                  <td><strong class="gradient-text">HoRD</strong></td>
                   <td><strong>90.7</strong></td>
                   <td><strong>88.4</strong></td>
                   <td><strong>86.0</strong></td>
                   <td><strong>84.4</strong></td>
                 </tr>
                 <tr>
-                  <td><strong>MIRAGE w/o DR</strong></td>
+                  <td><strong>HoRD w/o D</strong></td>
                   <td>79.8</td>
                   <td>&lt;10</td>
                   <td>&lt;10</td>
                   <td>&lt;10</td>
                 </tr>
                 <tr>
-                  <td><strong>MIRAGE w/o MIRROR</strong></td>
+                  <td><strong>HoRD w/o H</strong></td>
                   <td>91.3</td>
                   <td>70.5</td>
                   <td>&lt;10</td>
@@ -828,17 +825,8 @@
           
           <div style="background: var(--background-secondary); padding: 1rem; border-radius: 6px; margin-top: 1rem; border-left: 3px solid var(--primary-dark);">
             <p style="margin: 0; font-size: 0.95rem;">
-              <strong>💡 Key Findings:</strong> (1) Removing domain randomization leads to severe performance collapse 
-              once test-time perturbations or simulator changes are introduced, confirming DR is essential for robust 
-              generalization. (2) Removing MIRROR causes a different failure pattern: performance remains competitive 
-              in the training environment (91.3% vs. 90.7%) but degrades sharply under domain shifts, highlighting MIRROR's role as an 
-              implicit dynamics memory that allows online adaptation to latent changes in simulator parameters. 
-              (3) In the fixed IsaacLab environment, MIRAGE w/o MIRROR achieves slightly higher success (91.3% vs. 90.7%) 
-              because without the memory factor, more model capacity can focus on processing other inputs (e.g., future frames). 
-              With MIRROR, the per-frame varying memory tokens act as additional noise-like inputs, requiring a larger proportion 
-              of model weights to transform dynamic memory factors into fixed "proprioceptive" representations. However, MIRROR 
-              is designed to address domain shift problems, and in a fixed, known domain, this mechanism does not provide an advantage 
-              and may slightly reduce performance by allocating capacity to unnecessary adaptation mechanisms.
+              <strong>Key findings:</strong> (1) Removing domain randomization (w/o D) causes severe collapse under test-time perturbations or simulator change. 
+              (2) Removing HCDR (w/o H) keeps competitive performance on the training distribution but degrades sharply under distribution shift (e.g., near-zero success in Genesis), highlighting HCDR's role as a learned dynamics adaptation mechanism for online adaptation to latent simulator and contact variations.
             </p>
           </div>
         </div>
@@ -852,76 +840,119 @@
       </h3>
     <div class="content has-text-justified" style="margin-top: 2rem; margin-bottom: 2rem;">
       <p style="font-size: 1.05rem; line-height: 1.8;">
-        Training curves comparing <span class="gradient-text">MIRAGE</span> with ablation variants across different metrics. 
-        The curves demonstrate the contribution of each component (domain randomization and MIRROR) to the overall performance 
-        and training stability of the framework.
+        Training curves comparing <span class="gradient-text">HoRD</span> with ablation variants across different metrics. 
+        The curves demonstrate the contribution of domain randomization (D) and HCDR (H) to overall performance and training stability.
       </p>
     </div>
     
-    <div class="columns is-centered">
-      <div class="column">
-        <div class="content has-text-centered">
-          <figure class="image">
-            <img src="static/images/method_comparison.png" alt="Ablation Training Curves - Method Comparison">
-          </figure>
-          <p class="has-text-grey" style="margin-top: 1rem;">
-            Training curves comparing MIRAGE with ablation variants (w/o DR, w/o MIRROR) across different performance metrics.
-          </p>
+    <figure class="has-text-centered" style="margin-left: 0; margin-right: 0;">
+      <div class="columns is-vcentered" style="margin-top: 0;">
+        <div class="column" style="flex: 0 0 20%; max-width: 20%;">
+          <div class="content has-text-centered">
+            <figure class="image" style="padding-left: 0; padding-right: 0; margin-left: 0; margin-right: 0;">
+              <img src="static/images/method_comparison.png" alt="Ablation Training Curves - Method Comparison">
+            </figure>
+          </div>
         </div>
-      </div>
-    </div>
-    
-    <div class="columns is-centered" style="margin-top: 3rem;">
-      <div class="column">
-        <div class="content has-text-centered">
-          <figure class="image">
-            <img src="static/images/metrics_comparison1.png" alt="Ablation Training Curves - Metrics Comparison">
-          </figure>
-          <p class="has-text-grey" style="margin-top: 1rem;">
-            Detailed metrics comparison showing the impact of domain randomization and MIRROR on training dynamics and final performance.
-          </p>
-  </div>
-      </div>
-    </div>
-    
-    <!-- Ablation Results on Genesis Test Dataset -->
-    <div style="margin-top: 3rem;">
-      <h3 class="title is-4 has-text-centered" style="margin-bottom: 2rem;">
-        <span class="gradient-text">Ablation Results on Genesis Test Dataset</span>
-      </h3>
-    <div class="columns is-centered">
-      <div class="column">
-        <div class="content has-text-centered">
-          <figure class="image">
-              <img src="static/images/all_metrics_eval_combined.png" alt="Ablation Comparison on Genesis Test Dataset" style="border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
-          </figure>
-          <p class="has-text-grey" style="margin-top: 1rem;">
-              <strong>Ablation comparison on Genesis test dataset:</strong> Performance evaluation of MIRAGE and its ablation variants 
-              (w/o DR, w/o MIRROR) across multiple metrics in the Genesis environment. The results demonstrate the contribution of 
-              domain randomization and MIRROR to the overall performance, with MIRAGE achieving superior results across trajectory 
-              tracking, disturbance recovery, terrain robustness, and sim-to-sim transfer scenarios.
-            </p>
+        <div class="column" style="flex: 0 0 80%; max-width: 80%;">
+          <div class="content has-text-centered">
+            <figure class="image" style="padding-left: 0; padding-right: 0; margin-left: 0; margin-right: 0;">
+              <img src="static/images/metrics_comparison.png" alt="Ablation Training Curves - Metrics Comparison">
+            </figure>
           </div>
         </div>
       </div>
+      <figcaption class="has-text-grey has-text-centered" style="margin-top: 1rem;">
+        Detailed metrics comparison showing the impact of domain randomization and HCDR on training dynamics and final performance.
+      </figcaption>
+    </figure>
+    
+    <!-- Comprehensive evaluation metrics on test set (IsaacLab + DR) -->
+    <div style="margin-top: 3rem;">
+      <h3 class="title is-4 has-text-centered" style="margin-bottom: 2rem;">
+        <span class="gradient-text">Comprehensive Evaluation Metrics on Test Set</span>
+      </h3>
+      <p class="has-text-centered" style="margin-bottom: 1.5rem;">
+        Comprehensive evaluation metrics comparison across different methods on the test set. All policies are evaluated in IsaacLab with domain randomization.
+      </p>
+      <div class="table-container" style="overflow-x: auto;">
+        <table class="table is-fullwidth is-striped" style="font-size: 0.9rem;">
+          <thead>
+            <tr>
+              <th>Metric</th>
+              <th>HoRD</th>
+              <th>HoRD w/o D</th>
+              <th>HoRD w/o H</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Cartesian Error ↓</td>
+              <td><strong>0.087</strong></td>
+              <td>0.286</td>
+              <td>0.182</td>
+            </tr>
+            <tr>
+              <td>Global Rotation Error ↓</td>
+              <td><strong>0.369</strong></td>
+              <td>1.594</td>
+              <td>1.011</td>
+            </tr>
+            <tr>
+              <td>Global Translation Error ↓</td>
+              <td><strong>0.124</strong></td>
+              <td>0.832</td>
+              <td>0.341</td>
+            </tr>
+            <tr>
+              <td>DOF Velocity Reward ↑</td>
+              <td>0.972</td>
+              <td><strong>0.980</strong></td>
+              <td>0.960</td>
+            </tr>
+            <tr>
+              <td>Key Body Reward ↑</td>
+              <td><strong>0.907</strong></td>
+              <td>0.412</td>
+              <td>0.612</td>
+            </tr>
+            <tr>
+              <td>Local Rotation Reward ↑</td>
+              <td><strong>0.833</strong></td>
+              <td>0.274</td>
+              <td>0.507</td>
+            </tr>
+            <tr>
+              <td>Root Angular Velocity Reward ↑</td>
+              <td>0.480</td>
+              <td><strong>0.722</strong></td>
+              <td>0.412</td>
+            </tr>
+            <tr>
+              <td>Root Velocity Reward ↑</td>
+              <td><strong>0.954</strong></td>
+              <td>0.878</td>
+              <td>0.904</td>
+            </tr>
+          </tbody>
+        </table>
       </div>
     </div>
   </section>
 <!-- End Ablation Studies -->
 
-<!-- Policy Structure and Generalization Comparison -->
+<!-- Policy Structure and Generalization Comparison (Table 5 in Appendix A.3) -->
 <section class="section is-light">
   <div class="container is-max-desktop">
-    <h2 class="title is-3 has-text-centered">Policy Structure and Generalization Comparison</h2>
+    <h2 class="title is-3 has-text-centered">Deployment-Relevant Capabilities Comparison</h2>
     
     <div class="content has-text-justified" style="margin-top: 2rem;">
       <p style="font-size: 1.05rem; line-height: 1.8; margin-bottom: 2rem;">
-        We compare MIRAGE with existing methods across key dimensions of policy structure and generalization capabilities. 
-        Our method uniquely combines a <strong>unified expert policy</strong> with <strong>masked generalization</strong>, 
-        enabling training with domain randomization and zero-shot transfer to unseen domains. MIRAGE integrates 
-        <strong>domain-aware adaptation</strong> through MIRROR's historical memory, allowing the 
-        policy to sense domain-specific dynamics and switch to optimal strategies without explicit domain labels. This 
-        comprehensive approach distinguishes MIRAGE from prior work, which typically excels in only a subset of these capabilities.
+        We compare HoRD with representative humanoid control frameworks along three deployment-relevant capabilities: 
+        <strong>Unified Skill Coverage</strong> (single policy over diverse skills), 
+        <strong>Sparse-Command Generalization</strong> (robustness when only sparse keypoint-level commands are available), and 
+        <strong>Explicit Online Dynamics Adaptation</strong> (dedicated mechanism for adapting to dynamics variations at test time). 
+        HoRD supports all three; prior approaches typically support only a subset.
       </p>
     </div>
     
@@ -931,27 +962,21 @@
           <thead>
             <tr>
               <th>Method</th>
-              <th>Unified<br>Expert Policy</th>
-              <th>Masked<br>Generalization</th>
-              <th>Training<br>with DR</th>
-              <th>Zero-shot<br>Transfer</th>
-              <th>Domain<br>Awareness</th>
+              <th>Unified Skill<br>Coverage</th>
+              <th>Sparse-Command<br>Generalization</th>
+              <th>Explicit Online<br>Dynamics Adaptation</th>
             </tr>
           </thead>
           <tbody>
             <tr style="background: var(--gradient-primary-medium); font-weight: bold;">
-              <td><strong class="gradient-text">MIRAGE (Ours)</strong></td>
-              <td><strong>✓</strong></td>
-              <td><strong>✓</strong></td>
+              <td><strong class="gradient-text">HoRD (Ours)</strong></td>
               <td><strong>✓</strong></td>
               <td><strong>✓</strong></td>
               <td><strong>✓</strong></td>
             </tr>
             <tr>
-              <td><strong>BumbleBee (BB)</strong></td>
+              <td><strong>BumbleBee</strong></td>
               <td>×</td>
-              <td>×</td>
-              <td>∼</td>
               <td>×</td>
               <td>×</td>
             </tr>
@@ -959,30 +984,22 @@
               <td><strong>HOVER</strong></td>
               <td>×</td>
               <td>✓</td>
-              <td>∼</td>
-              <td>✓</td>
-              <td>∼</td>
+              <td>×</td>
             </tr>
             <tr>
               <td><strong>MaskedMimic</strong></td>
               <td>✓</td>
               <td>✓</td>
               <td>×</td>
-              <td>×</td>
-              <td>×</td>
             </tr>
             <tr>
               <td><strong>ASAP</strong></td>
               <td>×</td>
               <td>×</td>
-              <td>∼</td>
               <td>×</td>
-              <td>∼</td>
             </tr>
             <tr>
               <td><strong>PHC</strong></td>
-              <td>×</td>
-              <td>×</td>
               <td>×</td>
               <td>×</td>
               <td>×</td>
@@ -992,30 +1009,24 @@
               <td>×</td>
               <td>×</td>
               <td>×</td>
-              <td>×</td>
-              <td>×</td>
             </tr>
             <tr>
               <td><strong>ExBody2</strong></td>
               <td>×</td>
               <td>×</td>
-              <td>∼</td>
-              <td>✓</td>
-              <td>∼</td>
+              <td>×</td>
             </tr>
             <tr>
               <td><strong>OmniH2O</strong></td>
               <td>✓</td>
               <td>×</td>
-              <td>∼</td>
-              <td>✓</td>
-              <td>∼</td>
+              <td>×</td>
             </tr>
           </tbody>
         </table>
       </div>
       <p class="has-text-centered" style="margin-top: 1rem; font-size: 0.85rem; color: #666;">
-        <strong>Notation:</strong> ✓ explicitly supported; × not supported; ∼ partially supported / indirectly enabled.
+        <strong>Notation:</strong> ✓ supported; × not supported (per paper Appendix A.3, Table 5).
       </p>
     </div>
   </div>
@@ -1024,21 +1035,20 @@
 <!-- Live Demonstrations -->
 <section class="section">
   <div class="container is-max-desktop">
-    <h2 class="title is-3 has-text-centered"><span class="gradient-text">MIRAGE</span> Live Demonstrations</h2>
+    <h2 class="title is-3 has-text-centered"><span class="gradient-text">HoRD</span> Live Demonstrations</h2>
     
     <div class="columns is-multiline" style="margin-top: 2rem;">
       <div class="column is-6">
         <div class="box" style="height: 100%;">
           <h3 class="title is-5 has-text-centered" style="margin-bottom: 1rem;">
-            <span class="gradient-text">Robust Recovery</span>
+            <span class="gradient-text">Disturbance Recovery</span>
           </h3>
           <video controls style="width: 100%; border-radius: 8px;">
             <source src="static/videos/g1_random_push.mp4" type="video/mp4">
             Your browser does not support the video tag.
           </video>
           <p class="has-text-grey" style="margin-top: 1rem;">
-            <strong>Random Perturbation Recovery:</strong> MIRAGE demonstrates robust automatic recovery 
-            under random external perturbations, showcasing superior stability and adaptability.
+            <strong>Random external push:</strong> HoRD quickly re-stabilizes and resumes the intended trajectory after a lateral push (zero-shot Genesis). Recovery success 85.2% (HoRD) vs. OmniH2O 71.8%, ExBody2 72.1%.
           </p>
         </div>
       </div>
@@ -1046,61 +1056,14 @@
       <div class="column is-6">
         <div class="box" style="height: 100%;">
           <h3 class="title is-5 has-text-centered" style="margin-bottom: 1rem;">
-            <span class="gradient-text">Expert Distillation</span>
+            <span class="gradient-text">Online Distillation</span>
           </h3>
           <video controls style="width: 100%; border-radius: 8px;">
             <source src="static/videos/masked_mimic_g1_no_vae.mp4" type="video/mp4">
             Your browser does not support the video tag.
           </video>
           <p class="has-text-grey" style="margin-top: 1rem;">
-            <strong>Teacher-Student Distillation:</strong> Online distillation from expert teacher model 
-            to student model with sparse inputs, demonstrating efficient knowledge transfer.
-          </p>
-        </div>
-      </div>
-      
-      <div class="column is-6">
-        <div class="box" style="height: 100%; background: linear-gradient(to bottom right, var(--background-secondary), #e9ecef); border: 2px dashed var(--primary-color);">
-          <h3 class="title is-5 has-text-centered" style="margin-bottom: 1rem;">
-            <span class="gradient-text">RISE</span> <span style="font-size: 0.8rem; color: var(--primary-color);">🔮 Future Work</span>
-          </h3>
-          <div style="display: flex; align-items: center; justify-content: center; min-height: 300px; background: white; border-radius: 8px; padding: 2rem;">
-            <div style="text-align: center;">
-              <i class="fas fa-lightbulb" style="font-size: 4rem; color: var(--primary-color); margin-bottom: 1rem;"></i>
-              <p style="font-size: 1.2rem; color: var(--primary-color); font-weight: bold;">Conceptual Design</p>
-            </div>
-          </div>
-          <p class="has-text-grey" style="margin-top: 1rem;">
-            <strong>Recovery via Inferred State Endpoints:</strong> Inspired by insights from the MaskedMimic 
-            codebase, we hypothesize a future capability where the student model receives future target states 
-            (sparse keyframes + temporal offset) as input during distillation. We conjecture this will enable 
-            the policy to <em>infer optimal actions</em> that maximize the probability of reaching target states 
-            under physical constraints, achieving higher-dimensional recovery mechanisms such as autonomous 
-            fall-and-get-up behaviors.
-          </p>
-        </div>
-      </div>
-      
-      <div class="column is-6">
-        <div class="box" style="height: 100%; background: #fff9e6; border-left: 4px solid #ffc107;">
-          <h4 class="title is-6" style="color: #f57c00; margin-bottom: 1rem;">
-            <i class="fas fa-rocket"></i> RISE: Vision for Advanced Recovery
-          </h4>
-          <p style="font-size: 1rem; line-height: 1.7;">
-            <strong>Core Hypothesis:</strong> The expert model has learned extensive recovery behaviors 
-            (e.g., fall-and-get-up) from the training dataset. During online distillation, by modifying 
-            the input to include future target states (instead of current states), the student model may 
-            develop an emergent ability to reason about action sequences that lead to desired outcomes. 
-            This input modification transforms the distillation process from "imitate current actions" 
-            to "infer actions toward future goals," potentially enabling:
-          </p>
-          <ul style="margin-top: 0.8rem; margin-left: 1.5rem; font-size: 0.95rem; line-height: 1.6;">
-            <li><strong>Inverse dynamics reasoning:</strong> Computing "what actions now" lead to "target state later"</li>
-            <li><strong>Physics-aware planning:</strong> Respecting physical constraints in action inference</li>
-            <li><strong>Complex recovery behaviors:</strong> Multi-step recovery like fall detection → reorientation → stand-up</li>
-          </ul>
-          <p style="margin-top: 1rem; font-size: 0.9rem; font-style: italic; color: #666;">
-            This represents a promising direction for endowing embodied agents with higher-level recovery intelligence.
+            <strong>Teacher–student distillation:</strong> The student policy is trained by online distillation to match the expert's actions using only sparse SSJR commands and HCDR history, enabling deployable control from sparse inputs.
           </p>
         </div>
       </div>
@@ -1109,35 +1072,14 @@
 </section>
 <!-- End Live Demonstrations -->
 
-<!-- Evaluation Framework -->
-<section class="section is-light">
-  <div class="container is-max-desktop">
-    <h2 class="title is-3 has-text-centered">Evaluation Framework</h2>
-    <div class="columns is-centered">
-      <div class="column">
-        <div class="content has-text-centered">
-          <figure class="image">
-            <img src="static/images/mirage_eval_process.jpg" alt="MIRAGE Evaluation Process">
-          </figure>
-          <p class="has-text-grey" style="margin-top: 1rem;">
-            Comprehensive evaluation across <strong>trajectory tracking</strong>, <strong>push recovery</strong>, 
-            <strong>fall recovery</strong>, and <strong>sim-to-sim transfer</strong> scenarios.
-          </p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
 <!-- Representative Motion Demonstrations -->
 <section class="section">
   <div class="container is-max-desktop">
     <h2 class="title is-3 has-text-centered">Representative Motion Demonstrations</h2>
     <div class="content has-text-centered" style="margin-bottom: 2rem;">
       <p class="is-size-5">
-        MIRAGE performance across six representative motions under <strong>zero-shot domain transfer</strong> to the 
-        <strong>unseen Genesis environment</strong> (unseen domain). All videos demonstrate robust execution 
-        without target-domain fine-tuning.
+        HoRD performance across six representative motions (punch, get up, high kick, common walk, side walk, martial) under <strong>zero-shot transfer</strong> to the 
+        <strong>unseen Genesis environment</strong>. All videos show robust execution without target-domain fine-tuning. Red markers indicate ground-truth skeleton joints.
       </p>
     </div>
     
@@ -1147,7 +1089,7 @@
         <div class="box" style="height: 100%;">
           <h3 class="title is-5 has-text-centered" style="margin-bottom: 1rem;">Punch</h3>
           <video controls style="width: 100%; border-radius: 8px;">
-            <source src="static/videos/eval/1_punch/mirage/tmp_video.mp4" type="video/mp4">
+            <source src="static/videos/eval/1_punch/hord/tmp_video.mp4" type="video/mp4">
             Your browser does not support the video tag.
           </video>
         </div>
@@ -1157,7 +1099,7 @@
         <div class="box" style="height: 100%;">
           <h3 class="title is-5 has-text-centered" style="margin-bottom: 1rem;">Get Up</h3>
           <video controls style="width: 100%; border-radius: 8px;">
-            <source src="static/videos/eval/2_getup/mirage/tmp_video.mp4" type="video/mp4">
+            <source src="static/videos/eval/2_getup/hord/tmp_video.mp4" type="video/mp4">
             Your browser does not support the video tag.
           </video>
         </div>
@@ -1167,7 +1109,7 @@
         <div class="box" style="height: 100%;">
           <h3 class="title is-5 has-text-centered" style="margin-bottom: 1rem;">High Kick</h3>
           <video controls style="width: 100%; border-radius: 8px;">
-            <source src="static/videos/eval/3_high_kick/mirage/tmp_video.mp4" type="video/mp4">
+            <source src="static/videos/eval/3_high_kick/hord/tmp_video.mp4" type="video/mp4">
             Your browser does not support the video tag.
           </video>
       </div>
@@ -1178,7 +1120,7 @@
         <div class="box" style="height: 100%;">
           <h3 class="title is-5 has-text-centered" style="margin-bottom: 1rem;">Common Walk</h3>
           <video controls style="width: 100%; border-radius: 8px;">
-            <source src="static/videos/eval/4_common_walk/mirage/tmp_video.mp4" type="video/mp4">
+            <source src="static/videos/eval/4_common_walk/hord/tmp_video.mp4" type="video/mp4">
             Your browser does not support the video tag.
           </video>
     </div>
@@ -1188,7 +1130,7 @@
         <div class="box" style="height: 100%;">
           <h3 class="title is-5 has-text-centered" style="margin-bottom: 1rem;">Side Walk</h3>
           <video controls style="width: 100%; border-radius: 8px;">
-            <source src="static/videos/eval/5_side_walk/mirage/tmp_video.mp4" type="video/mp4">
+            <source src="static/videos/eval/5_side_walk/hord/tmp_video.mp4" type="video/mp4">
             Your browser does not support the video tag.
           </video>
         </div>
@@ -1198,7 +1140,7 @@
         <div class="box" style="height: 100%;">
           <h3 class="title is-5 has-text-centered" style="margin-bottom: 1rem;">Martial</h3>
           <video controls style="width: 100%; border-radius: 8px;">
-            <source src="static/videos/eval/6_martial/mirage/tmp_video.mp4" type="video/mp4">
+            <source src="static/videos/eval/6_martial/hord/tmp_video.mp4" type="video/mp4">
             Your browser does not support the video tag.
           </video>
         </div>
@@ -1210,16 +1152,16 @@
 <!-- Terrain Diversity -->
 <section class="section">
   <div class="container is-max-desktop">
-    <h2 class="title is-3 has-text-centered">Terrain Diversity</h2>
+    <h2 class="title is-3 has-text-centered">Terrain Robustness</h2>
     <div class="columns is-centered">
       <div class="column">
         <div class="content has-text-centered">
           <figure class="image">
-            <img src="static/images/terrain.png" alt="Terrain Diversity">
+            <img src="static/images/terrain.png" alt="HoRD Terrain Robustness">
           </figure>
           <p class="has-text-grey" style="margin-top: 1rem;">
-            <span class="gradient-text">MIRAGE</span> is evaluated across diverse terrain types, 
-            demonstrating robust performance in varied environmental conditions.
+            <span class="gradient-text">HoRD</span> is evaluated on flat ground, smooth slope, and rough slope in zero-shot Genesis. 
+            Success rates: flat 86.2%, smooth slope 85.8%, rough slope 84.2%, demonstrating graceful degradation with terrain difficulty.
           </p>
         </div>
       </div>
@@ -1231,12 +1173,12 @@
   <section class="section" id="BibTeX">
     <div class="container is-max-desktop content">
         <h2 class="title">BibTeX</h2>
-    <pre><code>@misc{wang2026mirage,
-  title={MIRAGE: Robust Humanoid Control under Dynamics Mismatch},
-  author={Wang, Puyue and Hu, Jiawei and Jia, Hong},
+    <pre><code>@article{wang2026hord,
+  title={HoRD: Robust Humanoid Control via History-Conditioned Reinforcement Learning and Online Distillation},
+  author={Wang, Puyue and Hu, Jiawei and Gao, Yan and Wang, Junyan and Zhang, Yu and Dobbie, Gillian and Gu, Tao and Johal, Wafa and Dang, Ting and Jia, Hong},
   year={2026},
-  organization={University of Auckland},
-  url={https://github.com/hong-labs/Mirage}
+  journal={Preprint},
+  url={https://github.com/hong-labs/hord}
 }</code></pre>
     </div>
 </section>

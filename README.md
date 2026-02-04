@@ -1,18 +1,18 @@
-# MIRAGE: Masked Imitation for Robotic Action Generation and Execution
+# HoRD: Robust Humanoid Control via History-Conditioned Reinforcement Learning and Online Distillation
 
-[![GitHub](https://img.shields.io/badge/GitHub-Repository-blue?logo=github)](https://github.com/tonywang-0517/Mirage)
+[![GitHub](https://img.shields.io/badge/GitHub-Repository-blue?logo=github)](https://github.com/hong-labs/hord)
 [![Project](https://img.shields.io/badge/Project-Page-green)](https://tonywang-0517.github.io/mirage.github.io/)
 
-Project page for **MIRAGE: Masked Imitation for Robotic Action Generation and Execution** by Puyue Wang (University of Auckland, ICML 2026).
+Project page for **HoRD: Robust Humanoid Control via History-Conditioned Reinforcement Learning and Online Distillation** by Puyue Wang, Jiawei Hu, Yan Gao, Junyan Wang, Yu Zhang, Gillian Dobbie, Tao Gu, Wafa Johal, Ting Dang, Hong Jia (2026).
 
-A lightweight execution framework for robust whole-body humanoid control with standardized data, achieving substantially higher success rates under domain shifts and enabling reliable zero-shot sim-to-sim transfer to unseen physics engines.
+A two-stage learning framework for robust humanoid control under domain shift, achieving substantially higher success rates under domain shifts and enabling reliable zero-shot sim-to-sim transfer to unseen physics engines.
 
 ## Overview
 
-Achieving robust whole-body humanoid control under dynamics mismatch remains a central challenge in robotics. MIRAGE introduces two key innovations:
+Humanoid robots can suffer significant performance drops under small changes in dynamics, task specifications, or environment setup. HoRD introduces two key components:
 
-- **SCHEMA** (Sparse Command Handling for Embodied Motion Abstraction): A standardized sparse-joint protocol based on SMPL-X keypoints that consolidates fragmented motion sources into a single training and execution format
-- **MIRROR** (Memory-Integrated Robust Representation for Online Robustness): A history-conditioned control policy that leverages recent state–action sequences as implicit dynamics memory, significantly improving stability and sim-to-sim transfer
+- **SSJR** (Standardized Sparse-Joint Representation): A standardized sparse-joint protocol that unifies fragmented motion sources into a platform-agnostic sparse-joint command interface
+- **HCDR** (History-Conditioned Dynamics Representation): A history-conditioned representation module that encodes recent state–action history into a temporal memory embedding for online dynamics inference and adaptive modulation
 
 ## Key Results
 
@@ -24,10 +24,10 @@ Achieving robust whole-body humanoid control under dynamics mismatch remains a c
 ## Links
 
 - **Project Page**: [https://tonywang-0517.github.io/mirage.github.io/](https://tonywang-0517.github.io/mirage.github.io/)
-- **GitHub Repository**: [https://github.com/tonywang-0517/Mirage](https://github.com/tonywang-0517/Mirage)
-- **Paper**: [Overleaf](https://www.overleaf.com/read/ttjqpnkhmyrv#3c1420)
+- **GitHub Repository**: [https://github.com/hong-labs/hord](https://github.com/hong-labs/hord)
+- **Paper**: [Coming soon]
 - **Video**: [YouTube](https://www.youtube.com/watch?v=YOUR_VIDEO_ID) (Coming soon)
-- **Author**: [Puyue Wang](https://github.com/tonywang-0517)
+- **Authors**: [Puyue Wang](https://github.com/tonywang-0517), [Jiawei Hu](), [Hong Jia]()
 
 ## Project Structure
 
@@ -40,23 +40,23 @@ mirage.github.io/
 │   ├── js/                # JavaScript files
 │   ├── images/            # Images and visualizations
 │   │   ├── bg.png                      # Hero section background
-│   │   ├── mirage_overview.png         # Framework overview
+│   │   ├── hord_overview.png           # Framework overview
 │   │   ├── teacher_training_stage1.jpg # Training stage 1
 │   │   ├── student_training_stage2.jpg # Training stage 2
-│   │   ├── mirage_eval_process.jpg     # Evaluation process
+│   │   ├── hord_eval_process.jpg       # Evaluation process
 │   │   ├── method_comparison.png       # Ablation training curves
-│   │   ├── metrics_comparison1.png     # Training metrics comparison
+│   │   ├── metrics_comparison.png      # Training metrics comparison
 │   │   ├── all_metrics_eval_combined.png # Ablation results on Genesis
 │   │   ├── terrain.png                 # Terrain diversity
 │   │   └── favicon.ico                 # Site favicon
 │   └── videos/            # Demo videos
 │       ├── eval/           # Evaluation videos
-│       │   ├── 1_punch/mirage/tmp_video.mp4
-│       │   ├── 2_getup/mirage/tmp_video.mp4
-│       │   ├── 3_high_kick/mirage/tmp_video.mp4
-│       │   ├── 4_common_walk/mirage/tmp_video.mp4
-│       │   ├── 5_side_walk/mirage/tmp_video.mp4
-│       │   └── 6_martial/mirage/tmp_video.mp4
+│       │   ├── 1_punch/hord/tmp_video.mp4
+│       │   ├── 2_getup/hord/tmp_video.mp4
+│       │   ├── 3_high_kick/hord/tmp_video.mp4
+│       │   ├── 4_common_walk/hord/tmp_video.mp4
+│       │   ├── 5_side_walk/hord/tmp_video.mp4
+│       │   └── 6_martial/hord/tmp_video.mp4
 │       ├── g1_random_push.mp4          # Random perturbation recovery
 │       ├── masked_mimic_g1_no_vae.mp4  # Teacher-student distillation
 │       └── ...
@@ -67,26 +67,24 @@ mirage.github.io/
 
 - **Hero Section**: Eye-catching introduction with custom background image
 - **Performance Highlights**: Interactive cards showcasing key success rates
-- **Two Core Innovations**: Detailed explanation of SCHEMA and MIRROR
+- **Two Core Components**: Detailed explanation of SSJR and HCDR
 - **Training Methodology**: Two-stage teacher-student training architecture with domain randomization
 - **Sim-to-Sim Transfer Performance**: Comprehensive comparison table with baselines
 - **Ablation Studies**: Component analysis, training curves, and test results
 - **Representative Motion Demonstrations**: Six motion videos under zero-shot domain transfer
 - **Policy Structure Comparison**: Method comparison table
 - **Live Demonstrations**: Robust recovery and expert distillation videos
-- **Evaluation Framework**: Comprehensive testing visualization
 - **Terrain Diversity**: Analysis across varied environmental conditions
 
 ## Citation
 
 ```bibtex
-@inproceedings{wang2026mirage,
-  title={MIRAGE: Masked Imitation for Robotic Action Generation and Execution},
-  author={Wang, Puyue},
-  booktitle={Proceedings of the 39th International Conference on Machine Learning (ICML)},
+@article{wang2026hord,
+  title={HoRD: Robust Humanoid Control via History-Conditioned Reinforcement Learning and Online Distillation},
+  author={Wang, Puyue and Hu, Jiawei and Gao, Yan and Wang, Junyan and Zhang, Yu and Dobbie, Gillian and Gu, Tao and Johal, Wafa and Dang, Ting and Jia, Hong},
   year={2026},
-  organization={University of Auckland},
-  url={https://github.com/tonywang-0517/Mirage}
+  journal={Preprint},
+  url={https://github.com/hong-labs/hord}
 }
 ```
 
@@ -113,12 +111,12 @@ The page uses a sand/gold color theme defined in CSS variables:
 ### Images
 All images are properly referenced and positioned:
 - `bg.png` - Hero section background image
-- `mirage_overview.png` - Framework overview diagram
+- `hord_overview.png` - Framework overview diagram
 - `teacher_training_stage1.jpg` - Stage 1 training visualization
 - `student_training_stage2.jpg` - Stage 2 training visualization
-- `mirage_eval_process.jpg` - Evaluation methodology visualization
+- `hord_eval_process.jpg` - Evaluation methodology visualization
 - `method_comparison.png` - Ablation training curves comparison
-- `metrics_comparison1.png` - Training metrics comparison
+- `metrics_comparison.png` - Training metrics comparison
 - `all_metrics_eval_combined.png` - Ablation results on Genesis test dataset
 - `terrain.png` - Terrain diversity analysis
 
