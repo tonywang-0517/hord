@@ -1,6 +1,6 @@
 # HoRD: Robust Humanoid Control via History-Conditioned Reinforcement Learning and Online Distillation
 
-[![GitHub](https://img.shields.io/badge/GitHub-Repository-blue?logo=github)](https://github.com/hong-labs/hord)
+[![GitHub](https://img.shields.io/badge/GitHub-Repository-blue?logo=github)](https://github.com/tonywang-0517/hord)
 [![Project](https://img.shields.io/badge/Project-Page-green)](https://tonywang-0517.github.io/mirage.github.io/)
 
 Project page for **HoRD: Robust Humanoid Control via History-Conditioned Reinforcement Learning and Online Distillation** by Puyue Wang, Jiawei Hu, Yan Gao, Junyan Wang, Yu Zhang, Gillian Dobbie, Tao Gu, Wafa Johal, Ting Dang, Hong Jia (2026).
@@ -24,10 +24,9 @@ Humanoid robots can suffer significant performance drops under small changes in 
 ## Links
 
 - **Project Page**: [https://tonywang-0517.github.io/mirage.github.io/](https://tonywang-0517.github.io/mirage.github.io/)
-- **GitHub Repository**: [https://github.com/hong-labs/hord](https://github.com/hong-labs/hord)
+- **GitHub Repository**: [https://github.com/tonywang-0517/hord](https://github.com/tonywang-0517/hord)
 - **Paper**: [Coming soon]
 - **Video**: [YouTube](https://www.youtube.com/watch?v=YOUR_VIDEO_ID) (Coming soon)
-- **Authors**: [Puyue Wang](https://github.com/tonywang-0517), [Jiawei Hu](), [Hong Jia]()
 
 ## Project Structure
 
@@ -84,7 +83,7 @@ mirage.github.io/
   author={Wang, Puyue and Hu, Jiawei and Gao, Yan and Wang, Junyan and Zhang, Yu and Dobbie, Gillian and Gu, Tao and Johal, Wafa and Dang, Ting and Jia, Hong},
   year={2026},
   journal={Preprint},
-  url={https://github.com/hong-labs/hord}
+  url={https://github.com/tonywang-0517/hord}
 }
 ```
 
@@ -124,10 +123,6 @@ All images are properly referenced and positioned:
 - **Evaluation Videos**: Six representative motions (punch, get up, high kick, common walk, side walk, martial) under zero-shot domain transfer
 - `g1_random_push.mp4` - Random perturbation recovery demonstration
 - `masked_mimic_g1_no_vae.mp4` - Teacher-student distillation demonstration
-
-## Acknowledgments
-
-This project page design was inspired by the [ODYSSEY](https://github.com/) project page and built using the [Academic Project Page Template](https://github.com/eliahuhorwitz/Academic-project-page-template).
 
 ## Website License
 
