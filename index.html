@@ -18,7 +18,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   
   <title>HoRD: Robust Humanoid Control via History-Conditioned RL and Online Distillation</title>
-  <link rel="icon" type="image/x-icon" href="static/images/favicon.ico">
+  <link rel="apple-touch-icon" sizes="180x180" href="static/favicon_io/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="static/favicon_io/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="static/favicon_io/favicon-16x16.png">
+  <link rel="manifest" href="static/favicon_io/site.webmanifest">
   <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
   
   <link rel="stylesheet" href="static/css/bulma.min.css">
@@ -37,7 +40,7 @@
 
   <style>
     .hero.is-fullheight {
-      background-color: var(--primary-color);
+      background-color: #ffffff;
       background-position: center center;
       background-size: cover;
       background-repeat: no-repeat;
@@ -141,11 +144,8 @@
         <div class="columns is-centered">
           <div class="column has-text-centered">
             <div class="content-box">
-              <h1 class="title is-1 publication-title is-size-2-mobile" style="font-size: 5rem; margin-bottom: 1rem;">
-                <span class="gradient-text">HoRD</span>
-              </h1>
-              <h1 class="title is-3 publication-title is-size-4-mobile" style="margin-bottom: 0.5rem; width: 80%; margin-left: auto; margin-right: auto;">
-                Robust Humanoid Control via <span style="color: var(--primary-color); font-weight: bold;">H</span>istory-C<span style="color: var(--primary-color); font-weight: bold;">o</span>nditioned <span style="color: var(--primary-color); font-weight: bold;">R</span>einforcement Learning and Online <span style="color: var(--primary-color); font-weight: bold;">D</span>istillation
+              <h1 class="title is-2 publication-title is-size-4-mobile" style="margin-bottom: 0.5rem; width: 80%; margin-left: auto; margin-right: auto;">
+                <img src="static/images/logo.png" alt="HoRD logo" style="height: 1.5em; vertical-align: -0.25em; margin-right: 0.2em;">HoRD: Robust Humanoid Control via <span style="text-decoration: underline; text-decoration-color: #000000;">H</span>istory-C<span style="text-decoration: underline; text-decoration-color: #000000;">o</span>nditioned <span style="text-decoration: underline; text-decoration-color: #000000;">R</span>einforcement Learning and Online <span style="text-decoration: underline; text-decoration-color: #000000;">D</span>istillation
               </h1>
               <p class="is-size-6" style="margin-bottom: 1.5rem; color: rgba(255, 255, 255, 0.9);">
                 Two-stage learning framework for robust humanoid control under domain shift
@@ -245,49 +245,6 @@
 <!-- End paper abstract -->
 
 <!-- Key Metrics -->
-<section class="section">
-  <div class="container is-max-desktop">
-    <h2 class="title is-3 has-text-centered"><span class="gradient-text">HoRD</span> Performance Highlights</h2>
-    <div class="columns is-multiline" style="margin-top: 2rem;">
-      <div class="column is-3">
-        <div class="metric-card">
-          <p class="title">90.7%</p>
-          <p class="subtitle">Success Rate<br>IsaacLab<br>(Training)</p>
-        </div>
-      </div>
-      <div class="column is-3">
-        <div class="metric-card">
-          <p class="title">88.4%</p>
-          <p class="subtitle">Success Rate<br>IsaacLab + DR<br>(Training)</p>
-        </div>
-      </div>
-      <div class="column is-3">
-        <div class="metric-card">
-          <p class="title">86.0%</p>
-          <p class="subtitle">Success Rate<br>Genesis<br>(Zero-Shot)</p>
-        </div>
-     </div>
-      <div class="column is-3">
-        <div class="metric-card">
-          <p class="title">84.4%</p>
-          <p class="subtitle">Success Rate<br>Genesis + DR<br>(Zero-Shot)</p>
-    </div>
-  </div>
-     </div>
-    <div class="box has-text-centered" style="margin-top: 2rem; background: var(--gradient-primary-light); border: 2px solid var(--primary-color);">
-      <h4 class="title is-4">
-        <span class="icon-text">
-          <span class="icon"><i class="fas fa-rocket"></i></span>
-          <span>Sim-to-Sim Transfer Excellence</span>
-        </span>
-      </h4>
-      <p class="is-size-5">
-        HoRD achieves a <strong class="gradient-text">86.0%</strong> success rate in zero-shot transfer to Genesis (unseen domain), exceeding several strong baselines such as ExBody2 and OmniH2O. Under additional domain randomization, HoRD maintains a <strong class="gradient-text">84.4%</strong> success rate, while alternative methods exhibit noticeably larger performance drops.
-      </p>
-</div>
-</div>
-</section>
-
 <!-- Framework Overview -->
 <section class="section">
   <div class="container is-max-desktop">
@@ -299,9 +256,9 @@
             <img src="static/images/hord_overview.png" alt="HoRD Framework Overview">
           </figure>
           <p class="has-text-grey" style="margin-top: 1rem;">
-            <span class="gradient-text">HoRD</span> is a two-stage teacher–student framework for robust humanoid control under partial observability. 
-            <strong>Stage I</strong>: an expert policy is trained with PPO in simulation using privileged full-state observations, dense future motion intent, and episode-level domain randomization; a shared <strong>HCDR</strong> module encodes interaction history into a temporal memory embedding for online dynamics inference. 
-            <strong>Stage II</strong>: a deployable student policy receives only sparse proprioception, environment context, and standardized motion commands via <strong>SSJR</strong>, and is trained by distillation to match the expert's actions. SSJR maps large-scale human motion data (or a global planner) into a platform-agnostic sparse-joint command interface, while HCDR provides in-context adaptation to latent dynamics during deployment.
+            <span class="gradient-text">HoRD</span> is a two-stage teacher–student framework for robust humanoid control under partial observability.
+            In <strong>Stage I</strong>, a PPO-trained expert with full-state access and episode-level domain randomization uses <strong>HCDR</strong> to encode recent interaction history into a temporal memory for online dynamics inference.
+            In <strong>Stage II</strong>, a deployable student with sparse proprioception and standardized motion commands via <strong>SSJR</strong> is distilled from the expert, reusing the same HCDR embedding to execute sparse-joint inputs from diverse motion sources or planners.
           </p>
         </div>
       </div>
@@ -318,12 +275,11 @@
         <div class="component-box">
           <h3 class="title is-4">
             <span class="icon-text">
-              <span class="icon"><i class="fas fa-code"></i></span>
               <span class="gradient-text">SSJR</span>
             </span>
           </h3>
           <p class="subtitle is-6"><strong>Standardized Sparse-Joint Representation</strong></p>
-          <p>SSJR represents future motion intentions using a sparse set of key joints defined in a canonical human skeletal model (e.g., SMPL-X). Motion commands over a short-horizon lookahead are expressed as root-relative joint configurations. By projecting human motion data from large-scale motion capture datasets (e.g., AMASS) onto this canonical sparse-joint representation, SSJR abstracts away platform-specific details while preserving task-relevant motion information. At execution, the student policy receives SSJR commands along with robot proprioception and environmental context, and outputs torque modulation signals. SSJR enables data scalability, cross-platform transfer, and anticipatory control when coupled with HCDR and domain randomization.</p>
+          <p>SSJR encodes short-horizon future motion as root-relative trajectories of a small set of key joints on a canonical human skeleton (e.g., SMPL-X), obtained by projecting large-scale motion capture datasets such as AMASS. This sparse, standardized interface removes platform-specific details while preserving task-relevant intent, allowing the student policy to take SSJR commands plus proprioception and context and output torque modulation. Combined with HCDR and domain randomization, SSJR improves data scalability, cross-platform transfer, and anticipatory control.</p>
         </div>
       </div>
       
@@ -331,12 +287,11 @@
         <div class="component-box">
           <h3 class="title is-4">
             <span class="icon-text">
-              <span class="icon"><i class="fas fa-brain"></i></span>
               <span class="gradient-text">HCDR</span>
             </span>
           </h3>
           <p class="subtitle is-6"><strong>History-Conditioned Dynamics Representation</strong></p>
-          <p>HCDR is a latent representation module that performs online dynamics inference from historical state–action interactions. It models history using a Query-Transformer (Q-Former) architecture: learnable latent tokens encode a shared prior over dynamics configurations, and the temporal memory embedding is computed via cross-attention between these tokens and the history. The resulting embedding acts as a compact dynamics fingerprint (e.g., surface friction, mass distribution, actuator delays). By conditioning the control modulation on this embedding, the policy adapts its behavior in context—adjusting gait, balance, and torque outputs based on how the environment has responded to previous actions. HCDR enables online system identification and adaptive control without direct access to latent physical parameters.</p>
+          <p>HCDR performs online dynamics inference from historical state–action interactions using a lightweight Query-Transformer (Q-Former). Learnable latent tokens attend over recent history to produce a temporal memory embedding that serves as a compact dynamics fingerprint (e.g., friction, mass distribution, actuator delays). Conditioning control on this embedding lets the policy adapt its gait, balance, and torque outputs to how the environment has responded so far, enabling online system identification without direct access to latent physical parameters.</p>
         </div>
       </div>
     </div>
@@ -346,9 +301,7 @@
 <!-- Training Methodology -->
 <section class="section is-light">
   <div class="container is-max-desktop">
-    <h2 class="title is-3 has-text-centered">
-      <i class="fas fa-cogs"></i> Training Methodology
-    </h2>
+    <h2 class="title is-3 has-text-centered">Training Methodology</h2>
     <div class="content has-text-justified" style="margin-top: 2rem;">
       <div class="box" style="background: white; padding: 2rem;">
         <h3 class="title is-5"><span class="gradient-text">Two-Stage Training Architecture</span></h3>
@@ -370,7 +323,7 @@
         
         <div style="background: var(--background-secondary); padding: 1.5rem; border-radius: 8px; border-left: 4px solid var(--primary-color); margin-top: 1rem;">
           <h4 class="title is-6" style="margin-bottom: 0.8rem;">
-            <i class="fas fa-graduation-cap"></i> Experimental Setup
+            Experimental Setup
           </h4>
           <ul style="margin-left: 1.5rem;">
             <li><strong>Robot:</strong> Unitree-style G1 humanoid, 29 actuated DoF, PD control at 50 Hz</li>
@@ -385,162 +338,56 @@
     
     <!-- Domain Randomization Strategy -->
     <div style="margin-top: 3rem;">
-      <h3 class="title is-4 has-text-centered" style="margin-bottom: 2rem;">
-        <span class="gradient-text">Domain Randomization Strategy</span>
+      <h3 class="title is-4 has-text-centered" style="margin-bottom: 1.5rem;">
+        Domain Randomization Strategy
       </h3>
-    <div class="content" style="margin-top: 2rem;">
-        <div class="box" style="background: var(--gradient-primary); padding: 2.5rem; color: white;">
-          <h4 class="title is-5" style="color: white; margin-bottom: 1.5rem;">
-          <i class="fas fa-shield-alt"></i> Bridging the Sim-to-Real Gap
-          </h4>
-        <p style="font-size: 1.1rem; line-height: 1.8; margin-bottom: 1.5rem;">
-          Our Domain Randomization (DR) strategy is carefully designed to <strong>balance model performance 
-          with diverse domain coverage</strong>, ensuring robust sim-to-sim and potential sim-to-real transfer. 
-          The approach introduces controlled variations across multiple aspects of the simulation environment:
-        </p>
-      </div>
-      
-      <div class="columns is-multiline" style="margin-top: 2rem;">
-        <div class="column is-6">
-            <div class="box" style="height: 100%; border: 2px solid var(--primary-color); background: var(--gradient-box-white);">
-              <h4 class="title is-5 has-text-centered" style="color: var(--primary-color); margin-bottom: 1.5rem;">
-              <i class="fas fa-eye"></i> Observation Randomization
-            </h4>
-            <div style="padding: 1rem;">
-              <div style="background: white; padding: 1rem; border-radius: 8px; margin-bottom: 1rem; box-shadow: 0 2px 8px rgba(0,0,0,0.08);">
-                <h5 class="title is-6" style="margin-bottom: 0.5rem;">
-                  <i class="fas fa-wave-square"></i> Sensor Noise
-                </h5>
-                <p>
-                  <strong>Slight observation noise</strong> is added to sensor readings, simulating 
-                  real-world measurement uncertainties while maintaining model accuracy.
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-        
-        <div class="column is-6">
-            <div class="box" style="height: 100%; border: 2px solid var(--primary-dark); background: var(--gradient-box-white);">
-              <h4 class="title is-5 has-text-centered" style="color: var(--primary-dark); margin-bottom: 1.5rem;">
-              <i class="fas fa-cog"></i> Physical Parameter Randomization
-            </h4>
-            <div style="padding: 1rem;">
-              <ul style="list-style: none; padding: 0;">
-                <li style="background: white; padding: 0.8rem; border-radius: 6px; margin-bottom: 0.8rem; box-shadow: 0 2px 6px rgba(0,0,0,0.06);">
-                    <strong><i class="fas fa-weight-hanging" style="color: var(--primary-color);"></i> Body Mass:</strong> 
-                  Randomized within a specified range
-                </li>
-                <li style="background: white; padding: 0.8rem; border-radius: 6px; margin-bottom: 0.8rem; box-shadow: 0 2px 6px rgba(0,0,0,0.06);">
-                    <strong><i class="fas fa-sliders-h" style="color: var(--primary-color);"></i> Joint Stiffness:</strong> 
-                  Varied to simulate different actuator characteristics
-                </li>
-                <li style="background: white; padding: 0.8rem; border-radius: 6px; margin-bottom: 0.8rem; box-shadow: 0 2px 6px rgba(0,0,0,0.06);">
-                    <strong><i class="fas fa-grip-lines" style="color: var(--primary-color);"></i> Friction:</strong> 
-                  Contact friction coefficients randomized
-                </li>
-                <li style="background: white; padding: 0.8rem; border-radius: 6px; box-shadow: 0 2px 6px rgba(0,0,0,0.06);">
-                    <strong><i class="fas fa-tachometer-alt" style="color: var(--primary-color);"></i> Damping:</strong> 
-                  Joint damping parameters varied
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
-        
-        <div class="column is-6">
-            <div class="box" style="height: 100%; border: 2px solid var(--primary-color); background: var(--gradient-box-white);">
-              <h4 class="title is-5 has-text-centered" style="color: var(--primary-color); margin-bottom: 1.5rem;">
-              <i class="fas fa-clock"></i> Actuator Latency Simulation
-            </h4>
-            <div style="padding: 1rem;">
-              <div style="background: white; padding: 1rem; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.08);">
-                <p style="margin-bottom: 0.8rem;">
-                  To mimic real-world hardware delays, <strong>joint command signals are probabilistically 
-                  delayed by 1-2 control steps</strong>, simulating:
-                </p>
-                <ul style="margin-left: 1.5rem;">
-                  <li>Communication latency</li>
-                  <li>Actuator response time</li>
-                  <li>Controller processing delays</li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
-        
-        <div class="column is-6">
-            <div class="box" style="height: 100%; border: 2px solid var(--primary-dark); background: var(--gradient-box-white);">
-              <h4 class="title is-5 has-text-centered" style="color: var(--primary-dark); margin-bottom: 1.5rem;">
-              <i class="fas fa-wind"></i> External Perturbations
-            </h4>
-            <div style="padding: 1rem;">
-              <div style="background: white; padding: 1rem; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.08);">
-                <p style="margin-bottom: 0.8rem;">
-                  <strong>Random external forces</strong> are applied to the robot at random time intervals, 
-                  simulating:
-                </p>
-                <ul style="margin-left: 1.5rem;">
-                  <li>Physical contacts and collisions</li>
-                  <li>Environmental disturbances</li>
-                  <li>Unexpected external interactions</li>
-                </ul>
-              </div>
-            </div>
-          </div>
+      <div class="content has-text-justified" style="margin-top: 1.5rem;">
+        <div class="box" style="background: white; padding: 2rem; border-left: 4px solid var(--primary-color);">
+          <p style="font-size: 1.05rem; line-height: 1.8; margin-bottom: 1.2rem;">
+            We use <strong>episode-level domain randomization</strong>: a dynamics parameter vector ψ<sup>(e)</sup> is sampled once at the start of each episode and held fixed, so the policy infers latent dynamics from interaction history rather than uncorrelated noise.
+          </p>
+          <ul style="margin-left: 1.5rem; line-height: 1.7;">
+            <li><strong>Inertial properties:</strong> link masses, center-of-mass locations, and joint damping
+              coefficients are randomized within predefined ranges.</li>
+            <li><strong>Contact dynamics:</strong> ground friction coefficients and contact stiffness are varied to
+              model different terrains and surfaces.</li>
+            <li><strong>Actuation delay:</strong> joint command signals are probabilistically delayed by 1–2 control
+              steps to emulate communication and actuator latencies.</li>
+            <li><strong>External perturbations:</strong> random external forces are applied to the torso at random
+              time intervals to simulate contacts, collisions, and environmental disturbances.</li>
+            <li><strong>Observation noise:</strong> slight sensor noise is added to proprioceptive signals to account
+              for imperfect measurements in deployment.</li>
+          </ul>
+          <p style="font-size: 1.05rem; line-height: 1.8; margin-top: 1.2rem;">
+            Together, these variations encourage HoRD to learn control policies that transfer across simulators and physical conditions.
+          </p>
         </div>
       </div>
-      
-        <div class="box" style="background: var(--background-secondary); border-left: 5px solid var(--primary-color); margin-top: 2rem; padding: 1.5rem;">
-        <h4 class="title is-6" style="margin-bottom: 1rem;">
-          <i class="fas fa-lightbulb"></i> Design Philosophy
-        </h4>
-        <p style="font-size: 1.05rem; line-height: 1.8;">
-          We use <strong>episode-level</strong> domain randomization: ψ<sup>(e)</sup> is sampled at the start of each episode and held fixed, giving temporally consistent dynamics. Parameters randomized include inertial properties (masses, CoM, joint damping), contact dynamics (friction, stiffness), control delay, and periodic external forces. This enables HoRD to achieve <strong>robust generalization</strong> across simulators and physical conditions, as shown in sim-to-sim transfer to Genesis.
-        </p>
-      </div>
-  </div>
+    </div>
 </section>
 <!-- End Training Methodology -->
-
-<!-- Divider: Experimental Results -->
-<section class="hero is-small" style="background: var(--gradient-primary); padding: 3rem 0;">
-    <div class="container">
-    <h1 class="title is-2 has-text-centered has-text-white">
-      <i class="fas fa-flask"></i> Experimental Results & Validation
-    </h1>
-    <p class="subtitle is-4 has-text-centered has-text-white" style="margin-top: 1rem;">
-      Comprehensive evaluation demonstrating HoRD's superior performance across in-domain and zero-shot transfer
-    </p>
-  </div>
-</section>
 
 <!-- Sim-to-Sim Transfer Comparison -->
 <section class="section is-light">
   <div class="container is-max-desktop">
-    <h2 class="title is-3 has-text-centered">Sim-to-Sim Transfer Performance Comparison</h2>
-    <div class="content has-text-centered" style="margin-bottom: 2rem;">
-      <p class="is-size-5">
-        Zero-shot transfer performance from IsaacLab (training) to Genesis (unseen domain).
-      </p>
-    </div>
+    <h2 class="title is-3 has-text-centered">Experimental Results &amp; Validation</h2>
     
     <!-- Performance Table -->
     <div class="box" style="margin-bottom: 2rem; background: var(--background-secondary);">
       <h4 class="title is-5 has-text-centered" style="margin-bottom: 1.5rem;">Overall Performance Comparison</h4>
       <p class="has-text-centered" style="margin-bottom: 1rem; font-size: 0.9rem; color: #666;">
-        Genesis results are evaluated in a zero-shot manner without collecting test-domain data for retraining. 
-        Best results are <strong class="gradient-text">bold</strong>; second-best are <u>underlined</u>.
+        ID = in-distribution (IsaacLab), OOD = out-of-distribution (Genesis). “+ DR” columns add extra evaluation-time dynamics randomization on top of the already randomized training policy.
+        Genesis results are evaluated in a zero-shot manner without collecting test-domain data for retraining; best results are <strong class="gradient-text">bold</strong>, second-best are <u>underlined</u>.
       </p>
       <div class="table-container" style="overflow-x: auto;">
         <table class="table is-fullwidth is-striped" style="font-size: 0.85rem;">
           <thead>
             <tr>
               <th rowspan="2">Method</th>
-              <th colspan="3">IsaacLab</th>
-              <th colspan="3">IsaacLab + DR</th>
-              <th colspan="3">Genesis</th>
-              <th colspan="3">Genesis + DR</th>
+              <th colspan="3">IsaacLab (ID)</th>
+              <th colspan="3">IsaacLab + DR (ID)</th>
+              <th colspan="3">Genesis (OOD)</th>
+              <th colspan="3">Genesis + DR (OOD)</th>
             </tr>
             <tr>
               <th>Succ.<br>(%)↑</th>
@@ -676,18 +523,18 @@
       </div>
     </div>
     
-    <!-- Key Insight Box -->
-    <div class="box" style="background: var(--gradient-primary); color: white; margin-top: 3rem; padding: 2rem;">
-      <h4 class="title is-5" style="color: white; margin-bottom: 1rem;">
-        <i class="fas fa-lightbulb"></i> Why Does HCDR Make the Difference?
-      </h4>
-      <p style="font-size: 1.05rem; line-height: 1.8;">
+    <!-- Key Insight: HCDR -->
+    <div class="box" style="background: var(--gradient-box-light); padding: 2rem; border-left: 5px solid var(--primary-color); margin-top: 3rem;">
+      <h3 class="title is-5" style="margin-bottom: 1.5rem;">
+        <span class="gradient-text">Why Does HCDR Make the Difference?</span>
+      </h3>
+      <p style="font-size: 1.05rem; line-height: 1.8; margin-bottom: 0;">
         HCDR encodes recent state–action history into a temporal memory embedding that serves as a <strong>dynamics fingerprint</strong>. 
-        Without it, policies trained under domain randomization must rely on a single fixed policy that cannot infer 
-        which latent dynamics (e.g., friction, delay, mass) are in effect. In contrast, HCDR enables <strong>online adaptation</strong>: 
-        the policy conditions on how the environment has responded to previous actions and adjusts gait, balance, and 
-        torque accordingly. This yields strong zero-shot sim-to-sim transfer to unseen physics engines (e.g., Genesis) 
-        without any target-domain data or fine-tuning.
+        Without this history-conditioned representation, policies trained under domain randomization must rely on a single fixed
+        strategy that cannot infer which latent dynamics (e.g., friction, delay, mass distribution) are currently in effect. In contrast,
+        HCDR enables <strong>online adaptation</strong>: the policy conditions on how the environment has responded to previous actions
+        and adjusts gait, balance, and torque targets accordingly. This mechanism is key to HoRD's strong zero-shot sim-to-sim transfer
+        to unseen physics engines (e.g., Genesis), achieved without any target-domain data or fine-tuning.
       </p>
     </div>
   </div>
@@ -698,7 +545,7 @@
 <section class="section">
   <div class="container is-max-desktop">
     <h2 class="title is-3 has-text-centered">
-      <i class="fas fa-flask"></i> Ablation Studies
+      Ablation Studies
     </h2>
     <div class="content" style="margin-top: 2rem;">
       <div class="box" style="background: var(--gradient-box-light); padding: 2rem; border-left: 5px solid var(--primary-color);">
